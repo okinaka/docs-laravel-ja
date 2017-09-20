@@ -65,7 +65,7 @@ Memcachedキャッシュを使用する場合は、[Memcached PECLパッケー�
 
 LaravelでRedisを使う前に、Composerで`predis/predis`パッケージ（~1.0）、もしくはPECLでPhpRedis PHP拡張のどちらかをインストールしておく必要があります。
 
-Redisの設定についての詳細は、[Laravelドキュメントページ](/docs/{{version}}/redis#configuration)を読んでください。
+Redisの設定についての詳細は、[Laravelドキュメントページ](redis#configuration)を読んでください。
 
 <a name="cache-usage"></a>
 ## キャシュの使用法
@@ -73,7 +73,7 @@ Redisの設定についての詳細は、[Laravelドキュメントページ](/d
 <a name="obtaining-a-cache-instance"></a>
 ### キャッシュインスタンスの取得
 
-`Illuminate\Contracts\Cache\Factory`と`Illuminate\Contracts\Cache\Repository`[契約](/docs/{{version}}/contracts)は、Laravelのキャッシュサービスへのアクセスを提供します。`Factory`契約は、アプリケーションで定義している全キャッシュドライバへのアクセスを提供します。`Repository`契約は通常、`cache`設定ファイルで指定している、アプリケーションのデフォルトキャッシュドライバの実装です。
+`Illuminate\Contracts\Cache\Factory`と`Illuminate\Contracts\Cache\Repository`[契約](contracts)は、Laravelのキャッシュサービスへのアクセスを提供します。`Factory`契約は、アプリケーションで定義している全キャッシュドライバへのアクセスを提供します。`Repository`契約は通常、`cache`設定ファイルで指定している、アプリケーションのデフォルトキャッシュドライバの実装です。
 
 しかし、このドキュメント全体で使用している、`Cache`ファサードも利用できます。`Cache`ファサードは裏で動作している、Laravelキャッシュ契約の実装への便利で簡潔なアクセスを提供しています。
 
@@ -203,7 +203,7 @@ Redisの設定についての詳細は、[Laravelドキュメントページ](/d
 <a name="the-cache-helper"></a>
 ### cacheヘルパ
 
-`Cache`ファサードと[Cache契約](/docs/{{version}}/contracts)に付け加え、キャッシュからのデータ取得／保存を行う、グローバル`cache`関数も使用できます。`cache`関数を文字列引数一つで呼び出す場合、指定したキーの値を返します。
+`Cache`ファサードと[Cache契約](contracts)に付け加え、キャッシュからのデータ取得／保存を行う、グローバル`cache`関数も使用できます。`cache`関数を文字列引数一つで呼び出す場合、指定したキーの値を返します。
 
     $value = cache('key');
 
@@ -213,7 +213,7 @@ Redisの設定についての詳細は、[Laravelドキュメントページ](/d
 
     cache(['key' => 'value'], Carbon::now()->addSeconds(10));
 
-> グローバル`cache`関数への呼び出しをテストする場合、[ファサードのテスト](/docs/{{version}}/mocking#mocking-facades)と同様に、`Cache::shouldReceive`メソッドを使います。
+> グローバル`cache`関数への呼び出しをテストする場合、[ファサードのテスト](mocking#mocking-facades)と同様に、`Cache::shouldReceive`メソッドを使います。
 
 <a name="cache-tags"></a>
 ## キャシュタグ
@@ -255,7 +255,7 @@ Redisの設定についての詳細は、[Laravelドキュメントページ](/d
 <a name="writing-the-driver"></a>
 ### ドライバープログラミング
 
-カスタムキャッシュドライバを作成するには、`Illuminate\Contracts\Cache\Store`[契約](/docs/{{version}}/contracts)を最初に実装する必要があります。そのため、MongoDBキャッシュドライバは、以下のような実装になるでしょう。
+カスタムキャッシュドライバを作成するには、`Illuminate\Contracts\Cache\Store`[契約](contracts)を最初に実装する必要があります。そのため、MongoDBキャッシュドライバは、以下のような実装になるでしょう。
 
     <?php
 
@@ -323,14 +323,14 @@ Laravelにカスタムキャッシュドライバを登録するには、`Cache`
         }
     }
 
-`extend`メソッドの最初の引数はドライバ名です。これは`config/cache.php`設定ファイルの、`driver`オプションと対応します。第２引数は、`Illuminate\Cache\Repository`インスタンスを返すクロージャです。クロージャには、[サービスコンテナ](/docs/{{version}}/container)インスタンスの`$app`インスタンスが渡されます。
+`extend`メソッドの最初の引数はドライバ名です。これは`config/cache.php`設定ファイルの、`driver`オプションと対応します。第２引数は、`Illuminate\Cache\Repository`インスタンスを返すクロージャです。クロージャには、[サービスコンテナ](container)インスタンスの`$app`インスタンスが渡されます。
 
 拡張を登録したら、`config/cache.php`設定ファイルの`driver`オプションへ、拡張の名前を登録してください。
 
 <a name="events"></a>
 ## イベント
 
-全キャッシュ操作に対してコードを実行するには、キャッシュが発行する[イベント](/docs/{{version}}/events)を購読する必要があります。通常、イベントリスナは`EventServiceProvider`の中へ設置します。
+全キャッシュ操作に対してコードを実行するには、キャッシュが発行する[イベント](events)を購読する必要があります。通常、イベントリスナは`EventServiceProvider`の中へ設置します。
 
     /**
      * アプリケーションのイベントリスナ

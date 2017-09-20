@@ -32,7 +32,7 @@ Laravelでは、データベースを駆動するアプリケーションのテ�
 <a name="generating-factories"></a>
 ## ファクトリの生成
 
-ファクトリを生成するには、`make:factory` [Artisanコマンド](/docs/{{version}}/artisan)を使用します。
+ファクトリを生成するには、`make:factory` [Artisanコマンド](artisan)を使用します。
 
     php artisan make:factory PostFactory
 
@@ -75,7 +75,7 @@ Laravelでは、データベースを駆動するアプリケーションのテ�
 <a name="writing-factories"></a>
 ## ファクトリの記述
 
-テスト実行前に、何件かのレコードをデータベースに挿入する必要があります。こうしたテストデータを作る時に、手動でそれぞれのカラムへ値を指定する代わりに、Laravelではモデルファクトリを使用し、[Eloquentモデル](/docs/{{version}}/eloquent)の各属性にデフォルト値を設定できます。手始めに、アプリケーションの`database/factories/UserFactory.php`ファイルを見てください。このファイルには初めからファクトリの定義が一つ含まれています。
+テスト実行前に、何件かのレコードをデータベースに挿入する必要があります。こうしたテストデータを作る時に、手動でそれぞれのカラムへ値を指定する代わりに、Laravelではモデルファクトリを使用し、[Eloquentモデル](eloquent)の各属性にデフォルト値を設定できます。手始めに、アプリケーションの`database/factories/UserFactory.php`ファイルを見てください。このファイルには初めからファクトリの定義が一つ含まれています。
 
     use Faker\Generator as Faker;
 
@@ -172,7 +172,7 @@ Laravelでは、データベースを駆動するアプリケーションのテ�
 <a name="relationships"></a>
 ### リレーション
 
-以下の例では、生成したモデルにリレーションを付けています。複数モデルの生成に`create`メソッドを使用する場合、[インスタンスのコレクション](/docs/{{version}}/eloquent-collections)が返されます。そのため、コレクションで使用できる`each`などの便利な関数が利用できます。
+以下の例では、生成したモデルにリレーションを付けています。複数モデルの生成に`create`メソッドを使用する場合、[インスタンスのコレクション](eloquent-collections)が返されます。そのため、コレクションで使用できる`each`などの便利な関数が利用できます。
 
     $users = factory(App\User::class, 3)
                ->create()

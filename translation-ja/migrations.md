@@ -23,12 +23,12 @@
 
 マイグレーションとはデータベースのバージョンコントロールのような機能です。アプリケーションデータベースのスキーマの更新をチームで簡単に共有できるようにしてくれます。マイグレーションは基本的にLaravelのスキーマビルダとペアで使い、アプリケーションのデータベーススキーマの作成を楽にしてくれます。もしあなたが今まで、チームメイトに彼らのローカルデータベーススキーマに手作業でカラムを追加するよう依頼したことがあるなら、データベースマイグレーションは、そうした問題を解決してくれます。
 
-Laravelの`Schema`[ファサード](/docs/{{version}}/facades)は、テーブルの作成や操作をサポートしてるデータベースシステム全部に対しサポートします。
+Laravelの`Schema`[ファサード](facades)は、テーブルの作成や操作をサポートしてるデータベースシステム全部に対しサポートします。
 
 <a name="generating-migrations"></a>
 ## マイグレーション生成
 
-`make:migration` [Artisanコマンド](/docs/{{version}}/artisan)を使いマイグレーションを生成できます。
+`make:migration` [Artisanコマンド](artisan)を使いマイグレーションを生成できます。
 
     php artisan make:migration create_users_table
 
@@ -90,7 +90,7 @@ Laravelの`Schema`[ファサード](/docs/{{version}}/facades)は、テーブル
 
     php artisan migrate
 
-> {note} [Homestead仮想マシン](/docs/{{version}}/homestead)を使用している場合、このコマンドは仮想マシン内で実行してください。
+> {note} [Homestead仮想マシン](homestead)を使用している場合、このコマンドは仮想マシン内で実行してください。
 
 #### 実働環境でのマイグレーション強制
 

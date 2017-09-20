@@ -13,7 +13,7 @@ LaravelはJavaScriptやCSSプリプロセッサの使用を規定してはいま
 
 #### CSS
 
-CSSをもっと楽しく取り扱うために役立つ、変数やmixinなどのパワフルな機能を通常のCSSへ付け加え、SASSとLESSをコンパイルするため、[Laravel Mix](/docs/{{version}}/mix)はクリーンで表現的なAPIを提供しています。このドキュメントでは、CSSコンパイル全般について簡単に説明します。SASSとLESSのコンパイルに関する情報は、[Laravel Mix documentation](/docs/{{version}}/mix)で確認してください。
+CSSをもっと楽しく取り扱うために役立つ、変数やmixinなどのパワフルな機能を通常のCSSへ付け加え、SASSとLESSをコンパイルするため、[Laravel Mix](mix)はクリーンで表現的なAPIを提供しています。このドキュメントでは、CSSコンパイル全般について簡単に説明します。SASSとLESSのコンパイルに関する情報は、[Laravel Mix documentation](mix)で確認してください。
 
 #### JavaScript
 
@@ -34,11 +34,11 @@ CSSのコンパイルを始める前に、プロジェクトのフロントエ�
 
     npm install
 
-`npm install`を使い、依存パッケージをインストールし終えたら、[Laravel Mix](/docs/{{version}}/mix#working-with-stylesheets)を使用して、SASSファイルを通常のCSSへコンパイルできます。`npm run dev`コマンドは`webpack.mix.js`ファイル中の指示を処理します。通常、コンパイル済みCSSは`public/css`ディレクトリへ設置されます。
+`npm install`を使い、依存パッケージをインストールし終えたら、[Laravel Mix](mix#working-with-stylesheets)を使用して、SASSファイルを通常のCSSへコンパイルできます。`npm run dev`コマンドは`webpack.mix.js`ファイル中の指示を処理します。通常、コンパイル済みCSSは`public/css`ディレクトリへ設置されます。
 
     npm run dev
 
-Laravelにデフォルトで含まれる`webpack.mix.js`は、`resources/assets/sass/app.scss` SASSファイルをコンパイルします。この`app.scss`ファイルはSASS変数のファイルと、ほとんどのアプリケーションの構築開始時に役に立つBootstrapをロードします。望みどおりに`app.scss`を自由にカスタマイズし、さらに[Laravel Mixを設定](/docs/{{version}}/mix)することで、まったく別のプリプロセッサを使用することさえ可能です。
+Laravelにデフォルトで含まれる`webpack.mix.js`は、`resources/assets/sass/app.scss` SASSファイルをコンパイルします。この`app.scss`ファイルはSASS変数のファイルと、ほとんどのアプリケーションの構築開始時に役に立つBootstrapをロードします。望みどおりに`app.scss`を自由にカスタマイズし、さらに[Laravel Mixを設定](mix)することで、まったく別のプリプロセッサを使用することさえ可能です。
 
 <a name="writing-javascript"></a>
 ## JavaScriptの出力
@@ -49,7 +49,7 @@ Laravelにデフォルトで含まれる`webpack.mix.js`は、`resources/assets/
 
 > {tip} JavaScriptアプリケーションを構築開始するために役立つよう、`vue`や`axios`のようなパッケージがデフォルトでLaravelの`package.json`ファイルに含まれています。自身のアプリケーションの要求に合わせ、`package.json`ファイルへ自由に追加、削除してください。
 
-`webpack.mix.js` file:パッケージをインストールしたら、`npm run dev`コマンドで[アセットをコンパイル](/docs/{{version}}/mix)できます。Webpackは、モダンなJavaScriptアプリケーションのための、モジュールビルダです。`npm run dev`コマンドを実行すると、Webpackは`webpack.mix.js`ファイル中の指示を実行します。
+`webpack.mix.js` file:パッケージをインストールしたら、`npm run dev`コマンドで[アセットをコンパイル](mix)できます。Webpackは、モダンなJavaScriptアプリケーションのための、モジュールビルダです。`npm run dev`コマンドを実行すると、Webpackは`webpack.mix.js`ファイル中の指示を実行します。
 
     npm run dev
 

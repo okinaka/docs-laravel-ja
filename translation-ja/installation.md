@@ -15,7 +15,7 @@
 <a name="server-requirements"></a>
 ### サーバ要件
 
-Laravelフレームワークを動作させるには多少のシステム要件があります。もちろん、[Laravel Homestead](/docs/{{version}}/homestead)仮想マシンでは、要求が全て満たされています。ですから、Laravelのローカル開発環境としてHomesteadを活用されることを強くおすすめします。
+Laravelフレームワークを動作させるには多少のシステム要件があります。もちろん、[Laravel Homestead](homestead)仮想マシンでは、要求が全て満たされています。ですから、Laravelのローカル開発環境としてHomesteadを活用されることを強くおすすめします。
 
 しかし、Homesteadを使用しない場合は、以下の要件を満たす必要があります。
 
@@ -62,7 +62,7 @@ PHPがローカルにインストール済みで、PHPの組込み開発サー�
 
     php artisan serve
 
-もちろん、より堅牢なローカル開発の選択肢として、[Homestead](/docs/{{version}}/homestead)と[Valet](/docs/{{version}}/valet)も利用できます。
+もちろん、より堅牢なローカル開発の選択肢として、[Homestead](homestead)と[Valet](valet)も利用できます。
 
 <a name="configuration"></a>
 ### 設定
@@ -77,7 +77,7 @@ Laravelをインストールできたら、Webサーバのドキュメント／W
 
 #### ディレクトリパーミッション
 
-Laravelをインストールした後に、多少のパーミッションの設定が必要です。`storage`下と`bootstrap/cache`ディレクトリをWebサーバから書き込み可能にしてください。設定しないとLaravelは正しく実行されません。[Homestead](/docs/{{version}}/homestead)仮想マシンを使用する場合は、あらかじめ設定されています。
+Laravelをインストールした後に、多少のパーミッションの設定が必要です。`storage`下と`bootstrap/cache`ディレクトリをWebサーバから書き込み可能にしてください。設定しないとLaravelは正しく実行されません。[Homestead](homestead)仮想マシンを使用する場合は、あらかじめ設定されています。
 
 #### アプリケーションキー
 
@@ -92,9 +92,9 @@ Laravelのその他の設定は、最初に指定する必要がありません�
 以下のようなLaravelのコンポーネントについても、設定しておいたほうが良いでしょう。
 
 <div class="content-list" markdown="1">
-- [キャッシュ](/docs/{{version}}/cache#configuration)
-- [データベース](/docs/{{version}}/database#configuration)
-- [セッション](/docs/{{version}}/session#configuration)
+- [キャッシュ](cache#configuration)
+- [データベース](database#configuration)
+- [セッション](session#configuration)
 </div>
 
 <a name="web-server-configuration"></a>
@@ -124,4 +124,4 @@ Nginxを使用する場合は、全てのリクエストが`index.php`フロン�
         try_files $uri $uri/ /index.php?$query_string;
     }
 
-もちろん、[Homestead](/docs/{{version}}/homestead)か[Valet](/docs/{{version}}/valet)を使用する場合は、きれいなURLの設定は自動的に行われます。
+もちろん、[Homestead](homestead)か[Valet](valet)を使用する場合は、きれいなURLの設定は自動的に行われます。

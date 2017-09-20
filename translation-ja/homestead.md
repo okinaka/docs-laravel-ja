@@ -338,7 +338,7 @@ Laravelベースではないプロジェクトも簡単に実行できるよう�
 <a name="configuring-cron-schedules"></a>
 ### Cronスケジュール設定
 
-`schedule:run` Artisanコマンドだけを毎分実行することにより、[Cronジョブのスケジュール](/docs/{{version}}/scheduling)を簡単に行う方法をLaravelは提供しています。`schedule:run`コマンドは`App\Console\Kernel`クラスの定義を調べ、どのジョブを実行すべきかを決定します。
+`schedule:run` Artisanコマンドだけを毎分実行することにより、[Cronジョブのスケジュール](scheduling)を簡単に行う方法をLaravelは提供しています。`schedule:run`コマンドは`App\Console\Kernel`クラスの定義を調べ、どのジョブを実行すべきかを決定します。
 
 Homesteadサイトで`schedule:run`コマンドを実行したい場合は、サイトを定義するときに`schedule`オプションを`true`に設定してください。
 

@@ -6,7 +6,7 @@
 <a name="introduction"></a>
 ## イントロダクション
 
-Laravelの`Hash`[ファサード](/docs/{{version}}/facades)は保存するユーザーパスワードに対し、安全なBcryptハッシュを提供します。Laravelアプリケーションに組み込まれている、`LoginController`と`RegisterController`を使用していれば、登録と認証で自動的にBcrypt使用します。
+Laravelの`Hash`[ファサード](facades)は保存するユーザーパスワードに対し、安全なBcryptハッシュを提供します。Laravelアプリケーションに組み込まれている、`LoginController`と`RegisterController`を使用していれば、登録と認証で自動的にBcrypt使用します。
 
 > {tip} Bcryptは「ストレッチ回数」が調整できるのでパスワードのハッシュには良い選択肢です。つまりハードウェアのパワーを上げればハッシュの生成時間を早くすることができます。
 
@@ -49,7 +49,7 @@ Laravelの`Hash`[ファサード](/docs/{{version}}/facades)は保存するユ�
 
 #### パスワードとハッシュ値の比較
 
-`check`メソッドにより指定した平文文字列と指定されたハッシュ値を比較確認できます。しかし[Laravelに含まれている](/docs/{{version}}/authentication)`LoginController`を使っている場合は、これを直接使用することはないでしょう。このコントローラがこのメソッドを自動的に呼び出します。
+`check`メソッドにより指定した平文文字列と指定されたハッシュ値を比較確認できます。しかし[Laravelに含まれている](authentication)`LoginController`を使っている場合は、これを直接使用することはないでしょう。このコントローラがこのメソッドを自動的に呼び出します。
 
     if (Hash::check('plain-text', $hashedPassword)) {
         // パスワード一致

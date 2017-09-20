@@ -48,7 +48,7 @@ Laravel Cashierは[Stripe](https://stripe.com)と[Braintree](https://www.braintr
 
 #### データベースマイグレーション
 
-Cashierを使用する前に、[データベースを準備](/docs/{{version}}/migrations)する必要があります。`users`テーブルに、いくつかのカラムを追加し、顧客のサブスクリプション情報すべてを保持する新しい`subscriptions`テーブルを作成します。
+Cashierを使用する前に、[データベースを準備](migrations)する必要があります。`users`テーブルに、いくつかのカラムを追加し、顧客のサブスクリプション情報すべてを保持する新しい`subscriptions`テーブルを作成します。
 
     Schema::table('users', function ($table) {
         $table->string('stripe_id')->nullable();
@@ -113,7 +113,7 @@ Cashierを使用する前に、[データベースを準備](/docs/{{version}}/m
 
 #### サービスプロバイダ
 
-次に`config/app.php`設定ファイルへ、`Laravel\Cashier\CashierServiceProvider`[サービスプロバイダ](/docs/{{version}}/providers)を登録します。
+次に`config/app.php`設定ファイルへ、`Laravel\Cashier\CashierServiceProvider`[サービスプロバイダ](providers)を登録します。
 
     Laravel\Cashier\CashierServiceProvider::class
 
@@ -125,7 +125,7 @@ CashierをBraintreeで使用する前に、`plan-credit`ディスカウントを
 
 #### データベースマイグレーション
 
-Cashierを使用する前に、[データベースも準備](/docs/{{version}}/migrations)する必要があります。`users`テーブルにカラムをいくつか追加し、顧客のサブスクリプション情報を保存するために新しい`subscriptions`テーブルを作成します。
+Cashierを使用する前に、[データベースも準備](migrations)する必要があります。`users`テーブルにカラムをいくつか追加し、顧客のサブスクリプション情報を保存するために新しい`subscriptions`テーブルを作成します。
 
     Schema::table('users', function ($table) {
         $table->string('braintree_id')->nullable();
@@ -231,7 +231,7 @@ Stripe／Braintreeがサポートしている追加のフィールドについ�
         //
     }
 
-`subscribed`メソッドは[ルートミドルウェア](/docs/{{version}}/middleware)で使用しても大変役に立つでしょう。ユーザーのサブスクリプション状況に基づいてルートやコントローラへのアクセスをフィルタリングできます。
+`subscribed`メソッドは[ルートミドルウェア](middleware)で使用しても大変役に立つでしょう。ユーザーのサブスクリプション状況に基づいてルートやコントローラへのアクセスをフィルタリングできます。
 
     public function handle($request, Closure $next)
     {
@@ -401,7 +401,7 @@ Stripe／Braintreeがサポートしている追加のフィールドについ�
         'trial_ends_at' => Carbon::now()->addDays(10),
     ]);
 
-> {note} モデル定義の`trial_ends_at`に対する、[日付ミューテタ](/docs/{{version}}/eloquent-mutators#date-mutators)を付け加えるのを忘れないでください。
+> {note} モデル定義の`trial_ends_at`に対する、[日付ミューテタ](eloquent-mutators#date-mutators)を付け加えるのを忘れないでください。
 
 既存のサブスクリプションと関連付けが行われていないので、Cashierでは、このタイプの試用を「包括的な試用(generic trial)」と呼んでいます。`User`インスタンスに対し、`onTrial`メソッドが`true`を返す場合、現在の日付は`trial_ends_at`の値を過ぎていません。
 
@@ -437,7 +437,7 @@ StripeとBraintree、両方共にWebフックによりアプリケーション�
 
 #### WebフックとCSRF保護
 
-StripeのWebフックでは、Laravelの [CSRFバリデーション](/docs/{{version}}/csrf)をバイパスする必要があるため、`VerifyCsrfToken`ミドルウェアのURIを例外としてリストしておくか、ルート定義を`web`ミドルウェアグループのリストから外しておきましょう。
+StripeのWebフックでは、Laravelの [CSRFバリデーション](csrf)をバイパスする必要があるため、`VerifyCsrfToken`ミドルウェアのURIを例外としてリストしておくか、ルート定義を`web`ミドルウェアグループのリストから外しておきましょう。
 
     protected $except = [
         'stripe/*',
@@ -496,7 +496,7 @@ StripeとBraintree、両方共にWebフックによりアプリケーション�
 
 #### WebフックとCSRF保護
 
-BraintreeのWebフックでは、Laravelの [CSRFバリデーション](/docs/{{version}}/csrf)をバイパスする必要があるため、`VerifyCsrfToken`ミドルウェアのURIを例外としてリストしておくか、ルート定義を`web`ミドルウェアグループのリストから外しておきましょう。
+BraintreeのWebフックでは、Laravelの [CSRFバリデーション](csrf)をバイパスする必要があるため、`VerifyCsrfToken`ミドルウェアのURIを例外としてリストしておくか、ルート定義を`web`ミドルウェアグループのリストから外しておきましょう。
 
     protected $except = [
         'braintree/*',

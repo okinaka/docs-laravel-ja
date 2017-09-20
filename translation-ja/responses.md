@@ -32,11 +32,11 @@
         return [1, 2, 3];
     });
 
-> {tip} [Eloquentコレクション](/docs/{{version}}/eloquent-collections)も返せることを知っていますか？　自動的にJSONへ変換されます。試してください！
+> {tip} [Eloquentコレクション](eloquent-collections)も返せることを知っていますか？　自動的にJSONへ変換されます。試してください！
 
 #### レスポンスオブジェクト
 
-通常、皆さんは単純な文字列や配列をルートアクションから返すだけじゃありませんよね。代わりに、`Illuminate\Http\Response`インスタンスか[views](/docs/{{version}}/views)を返したいですよね。
+通常、皆さんは単純な文字列や配列をルートアクションから返すだけじゃありませんよね。代わりに、`Illuminate\Http\Response`インスタンスか[views](views)を返したいですよね。
 
 完全な`Response`インスタンスを返せば、レスポンスのHTTPステータスコードやヘッダをカスタマイズできます。`Response`インスタンスは、`Symfony\Component\HttpFoundation\Response`クラスを継承しており、HTTPレスポンスを構築するために様々なメソッドを提供しています。
 
@@ -106,7 +106,7 @@ Laravelにより生成されるクッキーは、クライアントにより変�
         return redirect('home/dashboard');
     });
 
-例えば送信されたフォーム内容にエラーがある場合など、直前のページヘユーザーをリダイレクトさせたい場合もあります。グローバルな`back`ヘルパ関数を使ってください。この機能は[セッション](/docs/{{version}}/session)を利用しているため、`back`関数を使用するルートは`web`ミドルウェアグループに属しているか、セッションミドルウェアが適用されることを確認してください。
+例えば送信されたフォーム内容にエラーがある場合など、直前のページヘユーザーをリダイレクトさせたい場合もあります。グローバルな`back`ヘルパ関数を使ってください。この機能は[セッション](session)を利用しているため、`back`関数を使用するルートは`web`ミドルウェアグループに属しているか、セッションミドルウェアが適用されることを確認してください。
 
     Route::post('user/profile', function () {
         // レスポンスのバリデーション処理…
@@ -150,7 +150,7 @@ Eloquentモデルの"ID"をルートパラメーターとしてリダイレク�
 <a name="redirecting-controller-actions"></a>
 ### コントローラアクションへのリダイレクト
 
-[コントローラアクション](/docs/{{version}}/controllers)に対するリダイレクトを生成することもできます。そのためには、コントローラとアクションの名前を`action`メソッドに渡してください。Laravelの`RouteServiceProvider`により、ベースのコントローラ名前空間が自動的に設定されるため、コントローラの完全名前空間名を指定する必要がないことを覚えておいてください。
+[コントローラアクション](controllers)に対するリダイレクトを生成することもできます。そのためには、コントローラとアクションの名前を`action`メソッドに渡してください。Laravelの`RouteServiceProvider`により、ベースのコントローラ名前空間が自動的に設定されるため、コントローラの完全名前空間名を指定する必要がないことを覚えておいてください。
 
     return redirect()->action('HomeController@index');
 
@@ -163,7 +163,7 @@ Eloquentモデルの"ID"をルートパラメーターとしてリダイレク�
 <a name="redirecting-with-flashed-session-data"></a>
 ### フラッシュデータを保存するリダイレクト
 
-新しいURLへリダイレクトし、[セッションへフラッシュデータを保存する](/docs/{{version}}/session#flash-data)のは、一度にまとめて行われる典型的な作業です。典型的な使い方は、あるアクションが実行成功した後に、実効成功メッセージをフラッシュデータとしてセッションに保存する場合でしょう。これに便利なように、`RedirectResponse`インスタンスを生成し、メソッドチェーンを一つだけさっと書けば、データをセッションへ保存できるようになっています。
+新しいURLへリダイレクトし、[セッションへフラッシュデータを保存する](session#flash-data)のは、一度にまとめて行われる典型的な作業です。典型的な使い方は、あるアクションが実行成功した後に、実効成功メッセージをフラッシュデータとしてセッションに保存する場合でしょう。これに便利なように、`RedirectResponse`インスタンスを生成し、メソッドチェーンを一つだけさっと書けば、データをセッションへ保存できるようになっています。
 
     Route::post('user/profile', function () {
         // ユーザープロフィールの更新処理…
@@ -171,7 +171,7 @@ Eloquentモデルの"ID"をルートパラメーターとしてリダイレク�
         return redirect('dashboard')->with('status', 'Profile updated!');
     });
 
-ユーザーを新しいページヘリダイレクトした後、[セッション](/docs/{{version}}/session)へ保存したフラッシュデータのメッセージを取り出して、表示します。たとえば、[Blade記法](/docs/{{version}}/blade)を使ってみましょう。
+ユーザーを新しいページヘリダイレクトした後、[セッション](session)へ保存したフラッシュデータのメッセージを取り出して、表示します。たとえば、[Blade記法](blade)を使ってみましょう。
 
     @if (session('status'))
         <div class="alert alert-success">
@@ -182,12 +182,12 @@ Eloquentモデルの"ID"をルートパラメーターとしてリダイレク�
 <a name="other-response-types"></a>
 ## 他のレスポンスタイプ
 
-`response`ヘルパは、他のタイプのレスポンスインスタンスを生成するために便利です。`response`ヘルパが引数なしで呼び出されると、`Illuminate\Contracts\Routing\ResponseFactory`[契約](/docs/{{version}}/contracts)が返されます。この契約はレスポンスを生成するための、様々なメソッドを提供しています。
+`response`ヘルパは、他のタイプのレスポンスインスタンスを生成するために便利です。`response`ヘルパが引数なしで呼び出されると、`Illuminate\Contracts\Routing\ResponseFactory`[契約](contracts)が返されます。この契約はレスポンスを生成するための、様々なメソッドを提供しています。
 
 <a name="view-responses"></a>
 ### Viewレスポンス
 
-レスポンスのステータスやヘッダをコントロールしながらも、レスポンス内容として[ビュー](/docs/{{version}}/views)を返す必要がある場合は、`view`メソッドを使用してください。
+レスポンスのステータスやヘッダをコントロールしながらも、レスポンス内容として[ビュー](views)を返す必要がある場合は、`view`メソッドを使用してください。
 
     return response()
                 ->view('hello', $data, 200)
@@ -236,7 +236,7 @@ JSONPレスポンスを生成したい場合は、`json`メソッドと`withCall
 <a name="response-macros"></a>
 ## レスポンスマクロ
 
-いろいろなルートやコントローラで、再利用するためのカスタムレスポンスを定義したい場合は`Response`ファサードの`macro`メソッドが使用できます。たとえば、[サービスプロバイダ](/docs/{{version}}/providers)の`boot`メソッドで定義します。
+いろいろなルートやコントローラで、再利用するためのカスタムレスポンスを定義したい場合は`Response`ファサードの`macro`メソッドが使用できます。たとえば、[サービスプロバイダ](providers)の`boot`メソッドで定義します。
 
     <?php
 

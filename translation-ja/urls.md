@@ -41,7 +41,7 @@ Laravelはアプリケーションに対するURL生成の手助けとなる、�
     // 直前のリクエストの完全なURL
     echo url()->previous();
 
-こうしたメソッドには、`URL`[ファサード](/docs/{{version}}/facades)を使用してもアクセスできます。
+こうしたメソッドには、`URL`[ファサード](facades)を使用してもアクセスできます。
 
     use Illuminate\Support\Facades\URL;
 
@@ -62,7 +62,7 @@ Laravelはアプリケーションに対するURL生成の手助けとなる、�
 
     // http://example.com/post/1
 
-[Eloquentモデル](/docs/{{version}}/eloquent)の主キーを使用するURLを生成することもよくあると思います。そのため、Eloquentモデルをパラメータ値として渡すことができます。`route`ヘルパは、そのモデルの主キーを自動的に取り出します。
+[Eloquentモデル](eloquent)の主キーを使用するURLを生成することもよくあると思います。そのため、Eloquentモデルをパラメータ値として渡すことができます。`route`ヘルパは、そのモデルの主キーを自動的に取り出します。
 
     echo route('post.show', ['post' => $post]);
 
@@ -86,7 +86,7 @@ Laravelはアプリケーションに対するURL生成の手助けとなる、�
         //
     })->name('post.index');
 
-毎回`route`ヘルパを呼び出すごとに、`locale`をいつも指定するのは厄介です。そのため、現在のリクエストの間、常に適用されるこのパラメートのデフォルト値は、`URL::defaults`メソッドを使用し定義できます。現在のリクエストでアクセスできるように、[ルートミドルウェア](/docs/{{version}}/middleware#assigning-middleware-to-routes)から、このメソッドを呼び出したいかと思います。
+毎回`route`ヘルパを呼び出すごとに、`locale`をいつも指定するのは厄介です。そのため、現在のリクエストの間、常に適用されるこのパラメートのデフォルト値は、`URL::defaults`メソッドを使用し定義できます。現在のリクエストでアクセスできるように、[ルートミドルウェア](middleware#assigning-middleware-to-routes)から、このメソッドを呼び出したいかと思います。
 
     <?php
 

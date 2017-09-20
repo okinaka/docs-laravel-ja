@@ -19,13 +19,13 @@ JSONでAPIを作成する場合にはモデルとリレーションを配列やJ
 <a name="serializing-to-arrays"></a>
 ### 配列へのシリアライズ
 
-モデルとロード済みの[リレーション](/docs/{{version}}/eloquent-relationships)を配列に変換する場合、`toArray`メソッドを使います。このメソッドは再帰的に動作しますので、全属性と全リレーション（リレーションのリレーションも含む）は配列へ変換されます。
+モデルとロード済みの[リレーション](eloquent-relationships)を配列に変換する場合、`toArray`メソッドを使います。このメソッドは再帰的に動作しますので、全属性と全リレーション（リレーションのリレーションも含む）は配列へ変換されます。
 
     $user = App\User::with('roles')->first();
 
     return $user->toArray();
 
-モデルの[コレクション](/docs/{{version}}/eloquent-collections)を配列に変換することもできます。
+モデルの[コレクション](eloquent-collections)を配列に変換することもできます。
 
     $users = App\User::all();
 
@@ -106,7 +106,7 @@ JSONでAPIを作成する場合にはモデルとリレーションを配列やJ
 <a name="appending-values-to-json"></a>
 ## JSONへ値を追加
 
-モデルを配列やJSONへキャストするとき、データベースに対応するカラムがない属性の配列を追加する必要がある場合も時々あります。これを行うには、最初にその値の[アクセサ](/docs/{{version}}/eloquent-mutators)を定義します。
+モデルを配列やJSONへキャストするとき、データベースに対応するカラムがない属性の配列を追加する必要がある場合も時々あります。これを行うには、最初にその値の[アクセサ](eloquent-mutators)を定義します。
 
     <?php
 

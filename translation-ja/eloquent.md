@@ -27,18 +27,18 @@
 
 Eloquent ORMはLaravelに含まれている、美しくシンプルなアクティブレコードによるデーター操作の実装です。それぞれのデータベーステーブルは関連する「モデル」と結びついています。モデルによりテーブル中のデータをクエリできますし、さらに新しいレコードを追加することもできます。
 
-使いはじめる前に確実に`config/database.php`を設定してください。データベースの詳細は[ドキュメント](/docs/{{version}}/database#configuration)で確認してください。
+使いはじめる前に確実に`config/database.php`を設定してください。データベースの詳細は[ドキュメント](database#configuration)で確認してください。
 
 <a name="defining-models"></a>
 ## モデル定義
 
 利用を開始するには、まずEloquentモデルを作成しましょう。通常モデルは`app`ディレクトリ下に置きますが、`composer.json`ファイルでオートロードするように指定した場所であれば、どこでも自由に設置できます。全てのEloquentモデルは、`Illuminate\Database\Eloquent\Model`を拡張する必要があります。
 
-モデルを作成する一番簡単な方法は`make:model` [Artisanコマンド](/docs/{{version}}/artisan)を使用することです。
+モデルを作成する一番簡単な方法は`make:model` [Artisanコマンド](artisan)を使用することです。
 
     php artisan make:model User
 
-モデル作成時に[データベースマイグレーション](/docs/{{version}}/migrations)も生成したければ、`--migration`か`-m`オプションを使ってください。
+モデル作成時に[データベースマイグレーション](migrations)も生成したければ、`--migration`か`-m`オプションを使ってください。
 
     php artisan make:model User --migration
 
@@ -158,7 +158,7 @@ Eloquentモデルはデフォルトとして、アプリケーションに設定
 <a name="retrieving-models"></a>
 ## モデルの取得
 
-モデルと[対応するデータベーステーブル](/docs/{{version}}/migrations#writing-migrations)を作成したら、データベースからデータを取得できるようになりました。各Eloquentモデルは、対応するデータベーステーブルへすらすらとクエリできるようにしてくれる[クエリビルダ](/docs/{{version}}/queries)だと考えてください。例を見てください。
+モデルと[対応するデータベーステーブル](migrations#writing-migrations)を作成したら、データベースからデータを取得できるようになりました。各Eloquentモデルは、対応するデータベーステーブルへすらすらとクエリできるようにしてくれる[クエリビルダ](queries)だと考えてください。例を見てください。
 
     <?php
 
@@ -172,19 +172,19 @@ Eloquentモデルはデフォルトとして、アプリケーションに設定
 
 #### 制約の追加
 
-Eloquentの`all`メソッドはモデルテーブルの全レコードを結果として返します。Eloquentモデルは[クエリビルダ](/docs/{{version}}/queries)としても動作しますのでクエリに制約を付け加えることもでき、結果を取得するには`get`メソッドを使用します。
+Eloquentの`all`メソッドはモデルテーブルの全レコードを結果として返します。Eloquentモデルは[クエリビルダ](queries)としても動作しますのでクエリに制約を付け加えることもでき、結果を取得するには`get`メソッドを使用します。
 
     $flights = App\Flight::where('active', 1)
                    ->orderBy('name', 'desc')
                    ->take(10)
                    ->get();
 
-> {tip} Eloquentモデルはクエリビルダですから、[クエリビルダ](/docs/{{version}}/queries)で使用できる全メソッドを確認しておくべきでしょう。Eloquentクエリでどんなメソッドも使用できます。
+> {tip} Eloquentモデルはクエリビルダですから、[クエリビルダ](queries)で使用できる全メソッドを確認しておくべきでしょう。Eloquentクエリでどんなメソッドも使用できます。
 
 <a name="collections"></a>
 ### コレクション
 
-複数の結果を取得する`all`や`get`のようなEloquentメソッドは、`Illuminate\Database\Eloquent\Collection`インスタンスを返します。`Collection`クラスはEloquent結果を操作する[多くの便利なクラス](/docs/{{version}}/eloquent-collections#available-methods)を提供しています。
+複数の結果を取得する`all`や`get`のようなEloquentメソッドは、`Illuminate\Database\Eloquent\Collection`インスタンスを返します。`Collection`クラスはEloquent結果を操作する[多くの便利なクラス](eloquent-collections#available-methods)を提供しています。
 
     $flights = $flights->reject(function ($flight) {
         return $flight->cancelled;
@@ -249,7 +249,7 @@ Eloquentの`all`メソッドはモデルテーブルの全レコードを結果�
 <a name="retrieving-aggregates"></a>
 ### 集計の取得
 
-もちろん[クエリビルダ](/docs/{{version}}/queries)が提供している`count`、`sum`、`max`や、その他の[集計関数](/docs/{{version}}/queries#aggregates)を使用することもできます。これらのメソッドは完全なモデルインスタンスではなく、最適なスカラー値を返します。
+もちろん[クエリビルダ](queries)が提供している`count`、`sum`、`max`や、その他の[集計関数](queries#aggregates)を使用することもできます。これらのメソッドは完全なモデルインスタンスではなく、最適なスカラー値を返します。
 
     $count = App\Flight::where('active', 1)->count();
 
@@ -465,7 +465,7 @@ Eloquentの`all`メソッドはモデルテーブルの全レコードを結果�
         protected $dates = ['deleted_at'];
     }
 
-もちろんデータベーステーブルにも`deleted_at`カラムを追加する必要があります。Laravel[スキーマビルダ](/docs/{{version}}/migrations)にはこのカラムを作成するメソッドが存在しています。
+もちろんデータベーステーブルにも`deleted_at`カラムを追加する必要があります。Laravel[スキーマビルダ](migrations)にはこのカラムを作成するメソッドが存在しています。
 
     Schema::table('flights', function ($table) {
         $table->softDeletes();
@@ -490,7 +490,7 @@ Eloquentの`all`メソッドはモデルテーブルの全レコードを結果�
                     ->where('account_id', 1)
                     ->get();
 
-`withTrashed`メソッドは[リレーション](/docs/{{version}}/eloquent-relationships)のクエリにも使えます。
+`withTrashed`メソッドは[リレーション](eloquent-relationships)のクエリにも使えます。
 
     $flight->history()->withTrashed()->get();
 
@@ -514,7 +514,7 @@ Eloquentの`all`メソッドはモデルテーブルの全レコードを結果�
             ->where('airline_id', 1)
             ->restore();
 
-`withTrashed`メソッドと同様、`restore`メソッドは[リレーション](/docs/{{version}}/eloquent-relationships)に対しても使用できます。
+`withTrashed`メソッドと同様、`restore`メソッドは[リレーション](eloquent-relationships)に対しても使用できます。
 
     $flight->history()->restore();
 
@@ -719,7 +719,7 @@ Eloquentモデルは多くのイベントを発行します。`creating`、`crea
 
 `retrieved`は、データベースから既存のモデルを取得した時に発行されます。新しいアイテムが最初に保存される場合に`creating`と`created`イベントが発行されます。新しくないアイテムに`save`メソッドが呼び出されると`updating`と`updated`イベントが発行されます。どちらの場合にも`saving`と`saved`イベントは発行されます。
 
-使用するには、Eloquentモデルに`$dispatchesEvents`プロパティを定義します。これにより、Eloquentモデルのライフサイクルの様々な時点を皆さん自身の[イベントクラス](/docs/{{version}}/events)へマップします。
+使用するには、Eloquentモデルに`$dispatchesEvents`プロパティを定義します。これにより、Eloquentモデルのライフサイクルの様々な時点を皆さん自身の[イベントクラス](events)へマップします。
 
     <?php
 

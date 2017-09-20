@@ -531,7 +531,7 @@ Passportにはパーソナルアクセストークンを管理するためのJSO
 <a name="via-middleware"></a>
 ### ミドルウェアによる保護
 
-Passportは送信されてきたリクエスト上のアクセストークンをバリデートする、[認証ガード](/docs/{{version}}/authentication#adding-custom-guards)を用意しています。`passport`ドライバを`api`ガードで使うように設定すれば、あとはアクセストークンをバリデートしたいルートに、`auth:api`ミドルウェアを指定するだけです。
+Passportは送信されてきたリクエスト上のアクセストークンをバリデートする、[認証ガード](authentication#adding-custom-guards)を用意しています。`passport`ドライバを`api`ガードで使うように設定すれば、あとはアクセストークンをバリデートしたいルートに、`auth:api`ミドルウェアを指定するだけです。
 
     Route::get('/user', function () {
         //

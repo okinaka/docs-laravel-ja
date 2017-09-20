@@ -340,7 +340,7 @@ LaravelのFlysystem統合には、最初から様々な「ドライバ」が含�
 
     composer require spatie/flysystem-dropbox
 
-次に、たとえば`DropboxServiceProvider`のような、[サービスプロバイダ](/docs/{{version}}/providers)を用意してください。プロバイダの`boot`メソッドの中で`Storage`ファサードの`extend`メソッドを使い、カスタムドライバを定義できます。
+次に、たとえば`DropboxServiceProvider`のような、[サービスプロバイダ](providers)を用意してください。プロバイダの`boot`メソッドの中で`Storage`ファサードの`extend`メソッドを使い、カスタムドライバを定義できます。
 
     <?php
 

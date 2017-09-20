@@ -239,7 +239,7 @@ JavaScriptの変数を初期化するために、配列をビューに渡してJ
         // ユーザーは認証されていない
     @endguest
 
-必要であれば、`@auth`と`@guest`ディレクティブ使用時に、確認すべき[認証ガード](/docs/{{version}}/authentication)を指定できます。
+必要であれば、`@auth`と`@guest`ディレクティブ使用時に、確認すべき[認証ガード](authentication)を指定できます。
 
     @auth('admin')
         // ユーザーは認証済み
@@ -440,7 +440,7 @@ Bladeはさらに、他のビューやレイアウトでレンダーできるよ
 <a name="service-injection"></a>
 ## サービス注入
 
-`@inject`ディレクティブはLaravelの[サービスコンテナ](/docs/{{version}}/container)からサービスを取得するために使用します。`@inject`の最初の引数はそのサービスを取り込む変数名で、第２引数は依存解決したいクラス／インターフェイス名です。
+`@inject`ディレクティブはLaravelの[サービスコンテナ](container)からサービスを取得するために使用します。`@inject`の最初の引数はそのサービスを取り込む変数名で、第２引数は依存解決したいクラス／インターフェイス名です。
 
     @inject('metrics', 'App\Services\MetricsService')
 

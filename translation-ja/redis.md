@@ -116,7 +116,7 @@ PhpRedis拡張を使用するには、Redis設定の`client`オプションを`p
 <a name="interacting-with-redis"></a>
 ## Redisの操作
 
-`Redis`[ファサード](/docs/{{version}}/facades)のバラエティー豊かなメソッドを呼び出し、Redisを操作できます。`Redis`ファサードは動的メソッドをサポートしています。つまりファサードでどんな[Redisコマンド](https://redis.io/commands)でも呼び出すことができ、そのコマンドは直接Redisへ渡されます。以下の例ではRedisの`GET`コマンドを`Redis`ファサードの`get`メソッドで呼び出しています。
+`Redis`[ファサード](facades)のバラエティー豊かなメソッドを呼び出し、Redisを操作できます。`Redis`ファサードは動的メソッドをサポートしています。つまりファサードでどんな[Redisコマンド](https://redis.io/commands)でも呼び出すことができ、そのコマンドは直接Redisへ渡されます。以下の例ではRedisの`GET`コマンドを`Redis`ファサードの`get`メソッドで呼び出しています。
 
     <?php
 
@@ -177,7 +177,7 @@ Redisインスタンスを`Redis::connection`メソッドの呼び出しで取�
 
 さらにLaravelは、Redisの`publish`と`subscribe`コマンドの便利なインターフェイスも提供しています。これらのRedisコマンドは、指定した「チャンネル」のメッセージをリッスンできるようにしてくれます。他のアプリケーションからこのチャンネルにメッセージを公開するか、他の言語を使うこともでき、これによりアプリケーション／プロセス間で簡単に通信できます。
 
-最初に`subscribe`メソッドでRedisを経由するチャンネルのリスナを準備します。`subscribe`メソッドは長時間動作するプロセスですので、このメソッドは[Artisanコマンド](/docs/{{version}}/artisan)の中で呼び出します。
+最初に`subscribe`メソッドでRedisを経由するチャンネルのリスナを準備します。`subscribe`メソッドは長時間動作するプロセスですので、このメソッドは[Artisanコマンド](artisan)の中で呼び出します。
 
     <?php
 

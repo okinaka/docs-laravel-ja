@@ -28,7 +28,7 @@
 
     $collection = collect([1, 2, 3]);
 
-> {tip} [Eloquent](/docs/{{version}}/eloquent)クエリの結果は、常に`Collection`インスタンスを返します。
+> {tip} [Eloquent](eloquent)クエリの結果は、常に`Collection`インスタンスを返します。
 
 <a name="extending-collections"></a>
 ### コレクションの拡張
@@ -49,7 +49,7 @@
 
     // ['FIRST', 'SECOND']
 
-通常、[サービスプロバイダ](/docs/{{version}}/providers)の中で、コレクションマクロを定義します。
+通常、[サービスプロバイダ](providers)の中で、コレクションマクロを定義します。
 
 <a name="available-methods"></a>
 ## 利用可能なメソッド
@@ -222,7 +222,7 @@
 
     // [[1, 2, 3, 4], [5, 6, 7]]
 
-このメソッドは特に[Bootstrap](https://getbootstrap.com/css/#grid)のようなグリッドシステムを[ビュー](/docs/{{version}}/views)で操作する場合に便利です。[Eloquent](/docs/{{version}}/eloquent)モデルのコレクションがあり、グリッドで表示しようとしているところを想像してください。
+このメソッドは特に[Bootstrap](https://getbootstrap.com/css/#grid)のようなグリッドシステムを[ビュー](views)で操作する場合に便利です。[Eloquent](eloquent)モデルのコレクションがあり、グリッドで表示しようとしているところを想像してください。
 
     @foreach ($products->chunk(3) as $chunk)
         <div class="row">
@@ -1663,7 +1663,7 @@ sliceメソッドはデフォルトでキー値を保持したまま返します
 
     // [9, 18, 27, 36, 45, 54, 63, 72, 81, 90]
 
-このメソッドはファクトリーと組み合わせ、[Eloquent](/docs/{{version}}/eloquent)モデルを生成する場合に便利です。
+このメソッドはファクトリーと組み合わせ、[Eloquent](eloquent)モデルを生成する場合に便利です。
 
     $categories = Collection::times(3, function ($number) {
         return factory(Category::class)->create(['name' => 'Category #'.$number]);
@@ -1682,7 +1682,7 @@ sliceメソッドはデフォルトでキー値を保持したまま返します
 <a name="method-toarray"></a>
 #### `toArray()` {#collection-method}
 
-`toArray`メソッドはコレクションをPHPの「配列」へ変換します。コレクションの値が[Eloquent](/docs/{{version}}/eloquent)モデルの場合は、そのモデルが配列に変換されます。
+`toArray`メソッドはコレクションをPHPの「配列」へ変換します。コレクションの値が[Eloquent](eloquent)モデルの場合は、そのモデルが配列に変換されます。
 
     $collection = collect(['name' => 'Desk', 'price' => 200]);
 

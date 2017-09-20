@@ -208,7 +208,7 @@ Monologはデフォルトで、`production`や`local`のような現在の環境
 <a name="logging"></a>
 ## ログ
 
-Laravelのログ機能は、強力な[Monolog](https://github.com/seldaek/monolog)ライブラリーのシンプルな上位レイヤーを提供します。Laravelはデフォルトで、アプリケーションの日別ログファイルを`storage/logs`ディレクトリへ作成するように設定されています。ログへ情報を書き込むには`Log`[ファサード](/docs/{{version}}/facades)を使います。
+Laravelのログ機能は、強力な[Monolog](https://github.com/seldaek/monolog)ライブラリーのシンプルな上位レイヤーを提供します。Laravelはデフォルトで、アプリケーションの日別ログファイルを`storage/logs`ディレクトリへ作成するように設定されています。ログへ情報を書き込むには`Log`[ファサード](facades)を使います。
 
     <?php
 

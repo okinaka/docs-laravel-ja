@@ -21,7 +21,7 @@
 <a name="introduction"></a>
 ## イントロダクション
 
-Laravel Scout（スカウト、斥候）は、[Eloquentモデル](/docs/{{version}}/eloquent)へ、シンプルなドライバベースのフルテキストサーチを提供します。モデルオブサーバを使い、Scoutは検索インデックスを自動的にEloquentレコードと同期します。
+Laravel Scout（スカウト、斥候）は、[Eloquentモデル](eloquent)へ、シンプルなドライバベースのフルテキストサーチを提供します。モデルオブサーバを使い、Scoutは検索インデックスを自動的にEloquentレコードと同期します。
 
 現在、Scoutは[Algolia](https://www.algolia.com/)ドライバを用意しています。カスタムドライバは簡単に書けますので、独自の検索を実装し、Scoutを拡張できます。
 
@@ -53,7 +53,7 @@ Scoutをインストールしたら、`vendor:publish` Artisanコマンドを使
 <a name="queueing"></a>
 ### キュー
 
-Scoutを厳格（リアルタイム）に利用する必要が無いのであれば、このライブラリを使用する前に[キュードライバ](/docs/{{version}}/queues)の設定を考えてみるべきでしょう。キューワーカの実行により、モデルの情報を検索インデックスに同期する全操作をキューイングでき、アプリケーションのWebインターフェイスのレスポンス時間を改善できるでしょう。
+Scoutを厳格（リアルタイム）に利用する必要が無いのであれば、このライブラリを使用する前に[キュードライバ](queues)の設定を考えてみるべきでしょう。キューワーカの実行により、モデルの情報を検索インデックスに同期する全操作をキューイングでき、アプリケーションのWebインターフェイスのレスポンス時間を改善できるでしょう。
 
 キュードライバを設定したら、`config/scout.php`設定ファイルの`queue`オプション値を`true`に設定してください。
 
@@ -152,7 +152,7 @@ Algoliaドライバを使用する場合、Algolia `id`と`secret`接続情報�
 
 #### クエリによる追加
 
-Eloquentクエリにより、検索インデックスへモデルのコレクションを追加したい場合は、Eloquentクエリに`searchable`メソッドをチェーンします。`searchable`メソッドは、クエリの[結果をチャンクへ分割](/docs/{{version}}/eloquent#chunking-results)し、レコードを検索エンジンへ追加します。この場合も、Scoutでキューを使用する設定をしていれば、キューワーカが全チャンクをバックグランドで追加します。
+Eloquentクエリにより、検索インデックスへモデルのコレクションを追加したい場合は、Eloquentクエリに`searchable`メソッドをチェーンします。`searchable`メソッドは、クエリの[結果をチャンクへ分割](eloquent#chunking-results)し、レコードを検索エンジンへ追加します。この場合も、Scoutでキューを使用する設定をしていれば、キューワーカが全チャンクをバックグランドで追加します。
 
     // Eloquentクエリにより追加
     App\Order::where('price', '>', 100)->searchable();
@@ -190,7 +190,7 @@ Eloquentクエリにより、検索インデックスへモデルのコレクシ
 <a name="removing-records"></a>
 ### レコード削除
 
-インデックスからレコードを削除するには、データベースからモデルを`delete`で削除するだけです。この形態による削除は、モデルの[ソフト削除](/docs/{{version}}/eloquent#soft-deleting)と互換性があります。
+インデックスからレコードを削除するには、データベースからモデルを`delete`で削除するだけです。この形態による削除は、モデルの[ソフト削除](eloquent#soft-deleting)と互換性があります。
 
     $order = App\Order::find(1);
 
@@ -251,7 +251,7 @@ Scoutは検索クエリに対して"WHERE"節を単に追加する方法も提�
 <a name="pagination"></a>
 ### ペジネーション
 
-コレクションの取得に付け加え、検索結果を`paginate`メソッドでページづけできます。このメソッドは、`Paginator`インスタンスを返しますので、[Eloquentクエリのペジネーション](/docs/{{version}}/pagination)と同様に取り扱えます。
+コレクションの取得に付け加え、検索結果を`paginate`メソッドでページづけできます。このメソッドは、`Paginator`インスタンスを返しますので、[Eloquentクエリのペジネーション](pagination)と同様に取り扱えます。
 
     $orders = App\Order::search('Star Trek')->paginate();
 
@@ -259,7 +259,7 @@ Scoutは検索クエリに対して"WHERE"節を単に追加する方法も提�
 
     $orders = App\Order::search('Star Trek')->paginate(15);
 
-結果が取得できたら、通常のEloquentクエリのペジネーションと同様に、結果を表示し、[Blade](/docs/{{version}}/blade)を使用してページリンクをレンダーできます。
+結果が取得できたら、通常のEloquentクエリのペジネーションと同様に、結果を表示し、[Blade](blade)を使用してページリンクをレンダーできます。
 
     <div class="container">
         @foreach ($orders as $order)

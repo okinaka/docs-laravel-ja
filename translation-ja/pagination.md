@@ -13,7 +13,7 @@
 <a name="introduction"></a>
 ## イントロダクション
 
-他のフレームワークのペジネーションは苦痛に満ちています。Laravelのペジネータは[クエリビルダ](/docs/{{version}}/queries)と[Eloquent ORM](/docs/{{version}}/eloquent)に統合されており、データベースの結果を簡単、お手軽にペジネーションできます。ペジネータが生成するHTMLは、[Bootstrap CSSフレームワーク](https://getbootstrap.com/)コンパチブルです。
+他のフレームワークのペジネーションは苦痛に満ちています。Laravelのペジネータは[クエリビルダ](queries)と[Eloquent ORM](eloquent)に統合されており、データベースの結果を簡単、お手軽にペジネーションできます。ペジネータが生成するHTMLは、[Bootstrap CSSフレームワーク](https://getbootstrap.com/)コンパチブルです。
 
 <a name="basic-usage"></a>
 ## 基本的な使用法
@@ -21,7 +21,7 @@
 <a name="paginating-query-builder-results"></a>
 ### クエリビルダの結果
 
-アイテムをペジネーションするには多くの方法があります。一番簡単な方法は、[クエリビルダ](/docs/{{version}}/queries)と[Eloquent query](/docs/{{version}}/eloquent)へ`paginate`メソッドを使う方法です。`paginate`メソッドは、ユーザーが表示している現在のページに基づき、正しいアイテム数とオフセットを指定する面倒を見ます。デフォルトではHTTPリクエストの`page`クエリ文字列引数の値により現在ページが決められます。もちろんこの値はLaravelが自動的に探し、さらにペジネーターが挿入するリンクを自動的に生成します。
+アイテムをペジネーションするには多くの方法があります。一番簡単な方法は、[クエリビルダ](queries)と[Eloquent query](eloquent)へ`paginate`メソッドを使う方法です。`paginate`メソッドは、ユーザーが表示している現在のページに基づき、正しいアイテム数とオフセットを指定する面倒を見ます。デフォルトではHTTPリクエストの`page`クエリ文字列引数の値により現在ページが決められます。もちろんこの値はLaravelが自動的に探し、さらにペジネーターが挿入するリンクを自動的に生成します。
 
 以下の例では、`paginate`に一つだけ引数を渡しており、「ページごと」に表示したいアイテム数です。この例ではページごとに`15`アイテムを表示するように指定しています。
 
@@ -58,7 +58,7 @@
 <a name="paginating-eloquent-results"></a>
 ### Eloquentの結果
 
-さらに[Eloquent](/docs/{{version}}/eloquent)モデルもペジネーションできます。例として`User`モデルの`15`アイテムをページ付け表示してみましょう。ご覧の通り、クエリビルダ結果のペジネーションを行う記法はきれいでわかりやすいものです。
+さらに[Eloquent](eloquent)モデルもペジネーションできます。例として`User`モデルの`15`アイテムをページ付け表示してみましょう。ご覧の通り、クエリビルダ結果のペジネーションを行う記法はきれいでわかりやすいものです。
 
     $users = App\User::paginate(15);
 
@@ -84,7 +84,7 @@ Elqouentモデルをページづけするときにも、`simplePaginate`メソ�
 <a name="displaying-pagination-results"></a>
 ## ペジネーション結果の表示
 
-`paginate`メソッドを呼び出す場合、`Illuminate\Pagination\LengthAwarePaginator`インスタンスを受け取ります。`simplePaginate`メソッドを呼び出すときは、`Illuminate\Pagination\Paginator`インスタンスを受け取ります。これらのオブジェクトは結果を表すたくさんのメソッドを提供しています。こうしたヘルパメソッドに加え、ペジネーターインスタンスはイテレータでもあり、配列としてループ処理できます。つまり結果を取得したら、その結果とページリンクを[Blade](/docs/{{version}}/blade)を使い表示できます。
+`paginate`メソッドを呼び出す場合、`Illuminate\Pagination\LengthAwarePaginator`インスタンスを受け取ります。`simplePaginate`メソッドを呼び出すときは、`Illuminate\Pagination\Paginator`インスタンスを受け取ります。これらのオブジェクトは結果を表すたくさんのメソッドを提供しています。こうしたヘルパメソッドに加え、ペジネーターインスタンスはイテレータでもあり、配列としてループ処理できます。つまり結果を取得したら、その結果とページリンクを[Blade](blade)を使い表示できます。
 
     <div class="container">
         @foreach ($users as $user)

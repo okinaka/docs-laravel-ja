@@ -653,7 +653,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-mix"></a>
 #### `mix()` {#collection-method}
 
-`mix`関数は、[バージョンつけしたMixファイル](/docs/{{version}}/mix)のパスを取得します。
+`mix`関数は、[バージョンつけしたMixファイル](mix)のパスを取得します。
 
     $path = mix('css/app.css');
 
@@ -690,7 +690,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-__"></a>
 #### `__()` {#collection-method}
 
-`__`関数は、指定した翻訳文字列か翻訳キーを[ローカリゼーションファイル](/docs/{{version}}/localization)を使用し、翻訳します。
+`__`関数は、指定した翻訳文字列か翻訳キーを[ローカリゼーションファイル](localization)を使用し、翻訳します。
 
     echo __('Welcome to our application');
 
@@ -961,7 +961,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-trans"></a>
 #### `trans()` {#collection-method}
 
-`trans`関数は、指定した翻訳キーを[ローカリゼーションファイル](/docs/{{version}}/localization)を使用し翻訳します。
+`trans`関数は、指定した翻訳キーを[ローカリゼーションファイル](localization)を使用し翻訳します。
 
     echo trans('messages.welcome');
 
@@ -1051,7 +1051,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-abort"></a>
 #### `abort()` {#collection-method}
 
-`abort`関数は、[例外ハンドラ](/docs/{{version}}/errors#the-exception-handler)によりレンダーされるであろう、[HTTP例外](/docs/{{version}}/errors#http-exceptions)を投げます。
+`abort`関数は、[例外ハンドラ](errors#the-exception-handler)によりレンダーされるであろう、[HTTP例外](errors#http-exceptions)を投げます。
 
     abort(403);
 
@@ -1080,7 +1080,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-app"></a>
 #### `app()` {#collection-method}
 
-`app`関数は、[サービスコンテナ](/docs/{{version}}/container)のインスタンスを返します。
+`app`関数は、[サービスコンテナ](container)のインスタンスを返します。
 
     $container = app();
 
@@ -1091,7 +1091,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-auth"></a>
 #### `auth()` {#collection-method}
 
-`auth`関数は、[authenticator](/docs/{{version}}/authentication)のインスタンスを返します。利便のため、代わりに`Auth`ファサードを使用することもできます。
+`auth`関数は、[authenticator](authentication)のインスタンスを返します。利便のため、代わりに`Auth`ファサードを使用することもできます。
 
     $user = auth()->user();
 
@@ -1102,7 +1102,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-back"></a>
 #### `back()` {#collection-method}
 
-`back`関数はユーザーの直前のロケーションへの[リダイレクトHTTPレスポンス](/docs/{{version}}/responses#redirects)を生成します。
+`back`関数はユーザーの直前のロケーションへの[リダイレクトHTTPレスポンス](responses#redirects)を生成します。
 
     return back($status = 302, $headers = [], $fallback = false);
 
@@ -1111,14 +1111,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-bcrypt"></a>
 #### `bcrypt()` {#collection-method}
 
-`bcrypt`関数は指定した値をBcryptを使用し[ハッシュ](/docs/{{version}}/hashing)化します。`Hash`ファサードの代用として使用できます。
+`bcrypt`関数は指定した値をBcryptを使用し[ハッシュ](hashing)化します。`Hash`ファサードの代用として使用できます。
 
     $password = bcrypt('my-secret-password');
 
 <a name="method-broadcast"></a>
 #### `broadcast()` {#collection-method}
 
-`broadcast`関数は、指定した[イベント](/docs/{{version}}/events)をリスナへ[ブロードキャスト](/docs/{{version}}/broadcasting)します。
+`broadcast`関数は、指定した[イベント](events)をリスナへ[ブロードキャスト](broadcasting)します。
 
     broadcast(new UserRegistered($user));
 
@@ -1145,7 +1145,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-cache"></a>
 #### `cache()` {#collection-method}
 
-`cache`関数は[キャッシュ](/docs/{{version}}/cache)から値を取得するために使用します。キャッシュに指定したキーが存在しない場合、オプション値が返されます。
+`cache`関数は[キャッシュ](cache)から値を取得するために使用します。キャッシュに指定したキーが存在しない場合、オプション値が返されます。
 
     $value = cache('key');
 
@@ -1167,14 +1167,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-collect"></a>
 #### `collect()` {#collection-method}
 
-`collect`関数は、指定した値から[コレクション](/docs/{{version}}/collections)インスタンスを生成します。
+`collect`関数は、指定した値から[コレクション](collections)インスタンスを生成します。
 
     $collection = collect(['taylor', 'abigail']);
 
 <a name="method-config"></a>
 #### `config()` {#collection-method}
 
-`config`関数は[設定](/docs/{{version}}/configuration)変数の値を取得します。設定値はファイル名とアクセスしたいオプションを「ドット」記法で指定します。デフォルト値が指定でき、設定オプションが存在しない時に返されます。
+`config`関数は[設定](configuration)変数の値を取得します。設定値はファイル名とアクセスしたいオプションを「ドット」記法で指定します。デフォルト値が指定でき、設定オプションが存在しない時に返されます。
 
     $value = config('app.timezone');
 
@@ -1187,21 +1187,21 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-cookie"></a>
 #### `cookie()` {#collection-method}
 
-`cookie`関数は新しい[クッキー](/docs/{{version}}/requests#cookies)インスタンスを生成します。
+`cookie`関数は新しい[クッキー](requests#cookies)インスタンスを生成します。
 
     $cookie = cookie('name', 'value', $minutes);
 
 <a name="method-csrf-field"></a>
 #### `csrf_field()` {#collection-method}
 
-`csrf_field`関数は、CSRFトークン値を持つHTML「隠し」入力フィールドを生成します。[ブレード記法](/docs/{{version}}/blade)を使用した例です。
+`csrf_field`関数は、CSRFトークン値を持つHTML「隠し」入力フィールドを生成します。[ブレード記法](blade)を使用した例です。
 
     {{ csrf_field() }}
 
 <a name="method-csrf-token"></a>
 #### `csrf_token()` {#collection-method}
 
-`csrf_field`関数は、CSRFトークン値を持つHTML「隠し」入力フィールドを生成します。[ブレード記法](/docs/{{version}}/blade)を使用した例です。
+`csrf_field`関数は、CSRFトークン値を持つHTML「隠し」入力フィールドを生成します。[ブレード記法](blade)を使用した例です。
 
     $token = csrf_token();
 
@@ -1219,21 +1219,21 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-decrypt"></a>
 #### `decrypt()` {#collection-method}
 
-`decrypt`関数は、指定値をLaravelの[暗号化機能](/docs/{{version}}/encryption)を用い、復号します。
+`decrypt`関数は、指定値をLaravelの[暗号化機能](encryption)を用い、復号します。
 
     $decrypted = decrypt($encrypted_value);
 
 <a name="method-dispatch"></a>
 #### `dispatch()` {#collection-method}
 
-`dispatch`関数は、指定した[ジョブ](/docs/{{version}}/queues#creating-jobs)をLaravelの[ジョブキュー](/docs/{{version}}/queues)へ投入します。
+`dispatch`関数は、指定した[ジョブ](queues#creating-jobs)をLaravelの[ジョブキュー](queues)へ投入します。
 
     dispatch(new App\Jobs\SendEmails);
 
 <a name="method-dispatch-now"></a>
 #### `dispatch_now()` {#collection-method}
 
-`dispatch_now`関数は、指定した[ジョブ](/docs/{{version}}/queues#creating-jobs)を即時に実行し、`handle`メソッドからの値を返します。
+`dispatch_now`関数は、指定した[ジョブ](queues#creating-jobs)を即時に実行し、`handle`メソッドからの値を返します。
 
     $result = dispatch_now(new App\Jobs\SendEmails);
 
@@ -1251,14 +1251,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-encrypt"></a>
 #### `encrypt()` {#collection-method}
 
-`encrypt`関数は、Laravelの[暗号化機能](/docs/{{version}}/encryption)を用い、指定値を暗号化します。
+`encrypt`関数は、Laravelの[暗号化機能](encryption)を用い、指定値を暗号化します。
 
     $encrypted = encrypt($unencrypted_value);
 
 <a name="method-env"></a>
 #### `env()` {#collection-method}
 
-`env`関数は[環境変数](/docs/{{version}}/configuration#environment-configuration)の値を取得します。取得できない場合はデフォルト値を返します。
+`env`関数は[環境変数](configuration#environment-configuration)の値を取得します。取得できない場合はデフォルト値を返します。
 
     $env = env('APP_ENV');
 
@@ -1268,14 +1268,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-event"></a>
 #### `event()` {#collection-method}
 
-`event`関数は指定した[イベント](/docs/{{version}}/events)をリスナに対して発行します
+`event`関数は指定した[イベント](events)をリスナに対して発行します
 
     event(new UserRegistered($user));
 
 <a name="method-factory"></a>
 #### `factory()` {#collection-method}
 
-`factory`関数は指定したクラス、名前、個数のモデルファクトリビルダを生成します。これは[テスト](/docs/{{version}}/database-testing#writing-factories)や[シーディング（DB初期値設定）](/docs/{{version}}/seeding#using-model-factories)で使用できます。
+`factory`関数は指定したクラス、名前、個数のモデルファクトリビルダを生成します。これは[テスト](database-testing#writing-factories)や[シーディング（DB初期値設定）](seeding#using-model-factories)で使用できます。
 
     $user = factory(App\User::class)->make();
 
@@ -1302,7 +1302,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-info"></a>
 #### `info()` {#collection-method}
 
-`info`関数は[ログ](/docs/{{version}}/errors#logging)へ情報(information)を書き出します。
+`info`関数は[ログ](errors#logging)へ情報(information)を書き出します。
 
     info('Some helpful information!');
 
@@ -1313,7 +1313,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-logger"></a>
 #### `logger()` {#collection-method}
 
-`logger`関数は、`debug`レベルのメッセージを[ログ](/docs/{{version}}/errors#logging)へ書き出します。
+`logger`関数は、`debug`レベルのメッセージを[ログ](errors#logging)へ書き出します。
 
     logger('Debug message');
 
@@ -1321,14 +1321,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 
     logger('User has logged in.', ['id' => $user->id]);
 
-関数に値を渡さない場合は、[ロガー](/docs/{{version}}/errors#logging)インスタンスが返されます。
+関数に値を渡さない場合は、[ロガー](errors#logging)インスタンスが返されます。
 
     logger()->error('You are not allowed here.');
 
 <a name="method-method-field"></a>
 #### `method_field()` {#collection-method}
 
-`method_field`関数はフォームのHTTP動詞の見せかけの値を保持する「隠し」HTTP入力フィールドを生成します。[Blade記法](/docs/{{version}}/blade)を使う例です。
+`method_field`関数はフォームのHTTP動詞の見せかけの値を保持する「隠し」HTTP入力フィールドを生成します。[Blade記法](blade)を使う例です。
 
     <form method="POST">
         {{ method_field('DELETE') }}
@@ -1344,7 +1344,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-old"></a>
 #### `old()` {#collection-method}
 
-`old`関数はセッションにフラッシュデーターとして保存されている[直前の入力値](/docs/{{version}}/requests#old-input)を[取得](/docs/{{version}}/requests#retrieving-input)します。
+`old`関数はセッションにフラッシュデーターとして保存されている[直前の入力値](requests#old-input)を[取得](requests#retrieving-input)します。
 
     $value = old('value');
 
@@ -1362,14 +1362,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-policy"></a>
 #### `policy()` {#collection-method}
 
-`policy`関数は、指定クラスの[ポリシー](/docs/{{version}}/authorization#creating-policies)インスタンスを取得します。
+`policy`関数は、指定クラスの[ポリシー](authorization#creating-policies)インスタンスを取得します。
 
     $policy = policy(App\User::class);
 
 <a name="method-redirect"></a>
 #### `redirect()` {#collection-method}
 
-`redirect`関数は、[リダイレクトHTTPレスポンス](/docs/{{version}}/responses#redirects)を返します。引数無しで呼び出した場合は、リダイレクタインスタンスを返します。
+`redirect`関数は、[リダイレクトHTTPレスポンス](responses#redirects)を返します。引数無しで呼び出した場合は、リダイレクタインスタンスを返します。
 
     return redirect($to = null, $status = 302, $headers = [], $secure = null);
 
@@ -1380,14 +1380,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-report"></a>
 #### `report()` {#collection-method}
 
-`report`関数は、[例外ハンドラ](/docs/{{version}}/errors#the-exception-handler)の`report`メソッドを利用し、例外をレポートします。
+`report`関数は、[例外ハンドラ](errors#the-exception-handler)の`report`メソッドを利用し、例外をレポートします。
 
     report($e);
 
 <a name="method-request"></a>
 #### `request()` {#collection-method}
 
-`request`関数は現在の[リクエスト](/docs/{{version}}/requests)インスタンスを返すか、入力アイテムを取得します。
+`request`関数は現在の[リクエスト](requests)インスタンスを返すか、入力アイテムを取得します。
 
     $request = request();
 
@@ -1396,7 +1396,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-rescue"></a>
 #### `rescue()` {#collection-method}
 
-`rescue`関数は指定されたクロージャを実行し、実行時に発生する例外をキャッチします。キャッチされた例外は、すべて[例外ハンドラ](/docs/{{version}}/errors#the-exception-handler)の`report`メソッドに送られます。しかし、リクエストは引き続き処理されます。
+`rescue`関数は指定されたクロージャを実行し、実行時に発生する例外をキャッチします。キャッチされた例外は、すべて[例外ハンドラ](errors#the-exception-handler)の`report`メソッドに送られます。しかし、リクエストは引き続き処理されます。
 
     return rescue(function () {
         return $this->method();
@@ -1417,14 +1417,14 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-resolve"></a>
 #### `resolve()` {#collection-method}
 
-`resolve`関数は[サービスコンテナ](/docs/{{version}}/container)を使い、指定されたクラスやインターフェイスの名前から、そのインスタンス自身を依存解決します。
+`resolve`関数は[サービスコンテナ](container)を使い、指定されたクラスやインターフェイスの名前から、そのインスタンス自身を依存解決します。
 
     $api = resolve('HelpSpot\API');
 
 <a name="method-response"></a>
 #### `response()` {#collection-method}
 
-`response`関数は[response](/docs/{{version}}/responses)インスタンスを返すか、レスポンスファクトリのインスタンスを取得します。
+`response`関数は[response](responses)インスタンスを返すか、レスポンスファクトリのインスタンスを取得します。
 
     return response('Hello World', 200, $headers);
 
@@ -1442,7 +1442,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-session"></a>
 #### `session()` {#collection-method}
 
-`session`関数は[セッション](/docs/{{version}}/session)へ値を設定、もしくは取得するために使用します。
+`session`関数は[セッション](session)へ値を設定、もしくは取得するために使用します。
 
     $value = session('key');
 
@@ -1536,7 +1536,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-validator"></a>
 #### `validator()` {#collection-method}
 
-`validator`関数は、指定した引数で新しい[バリデータ](/docs/{{version}}/validation)インスタンスを生成します。利便のため、`Validator`ファサードを代わりに使うこともできます。
+`validator`関数は、指定した引数で新しい[バリデータ](validation)インスタンスを生成します。利便のため、`Validator`ファサードを代わりに使うこともできます。
 
     $validator = validator($data, $rules, $messages);
 
@@ -1558,7 +1558,7 @@ Laravelは様々な、グローバル「ヘルパ」PHP関数を用意してい�
 <a name="method-view"></a>
 #### `view()` {#collection-method}
 
-`view`関数は[view](/docs/{{version}}/views)インスタンスを返します。
+`view`関数は[view](views)インスタンスを返します。
 
     return view('auth.login');
 

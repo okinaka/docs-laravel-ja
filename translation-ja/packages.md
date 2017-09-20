@@ -31,7 +31,7 @@ Laravelアプリケーションをプログラムする場合は、契約とフ�
 <a name="package-discovery"></a>
 ## パッケージディスカバリー
 
-Laravelアプリケーションの`config/app.php`設定ファイルには、Laravelがロードすべきサービスプロバイダのリストが、`providers`オプションで定義されています。誰かが皆さんのパッケージをインストールしたら、皆さんのサービスプロバイダをこのリストに含めてもらいたいと思うことでしょう。このリストへユーザー自身がサービスプロバイダを追加することを要求する代わりに、皆さんのパッケージの`composer.json`ファイルの`extra`セクションで、プロバイダを定義してください。登録してもらいたい[ファサード](/docs/{{version}}/facades)もリストできます。
+Laravelアプリケーションの`config/app.php`設定ファイルには、Laravelがロードすべきサービスプロバイダのリストが、`providers`オプションで定義されています。誰かが皆さんのパッケージをインストールしたら、皆さんのサービスプロバイダをこのリストに含めてもらいたいと思うことでしょう。このリストへユーザー自身がサービスプロバイダを追加することを要求する代わりに、皆さんのパッケージの`composer.json`ファイルの`extra`セクションで、プロバイダを定義してください。登録してもらいたい[ファサード](facades)もリストできます。
 
     "extra": {
         "laravel": {
@@ -71,9 +71,9 @@ Laravelアプリケーションの`config/app.php`設定ファイルには、Lar
 <a name="service-providers"></a>
 ## サービスプロバイダ
 
-[サービスプロバイダ](/docs/{{version}}/providers)はパッケージとLaravelを結びつけるところです。サービスプロバイダは何かをLaravelの[サービスコンテナ](/docs/{{version}}/container)と結合し、ビューや設定、言語ファイルのようなリソースをどこからロードするかをLaravelに知らせる責務を持っています。
+[サービスプロバイダ](providers)はパッケージとLaravelを結びつけるところです。サービスプロバイダは何かをLaravelの[サービスコンテナ](container)と結合し、ビューや設定、言語ファイルのようなリソースをどこからロードするかをLaravelに知らせる責務を持っています。
 
-サービスプロバイダは`Illuminate\Support\ServiceProvider`クラスを拡張し、`register`と`boot`の２メソッドを含んでいます。ベースの`ServiceProvider`クラスは、`illuminate/support` Composerパッケージにあります。 サービスプロバイダの構造と目的について詳細を知りたければ、[ドキュメント](/docs/{{version}}/providers)を調べてください。
+サービスプロバイダは`Illuminate\Support\ServiceProvider`クラスを拡張し、`register`と`boot`の２メソッドを含んでいます。ベースの`ServiceProvider`クラスは、`illuminate/support` Composerパッケージにあります。 サービスプロバイダの構造と目的について詳細を知りたければ、[ドキュメント](providers)を調べてください。
 
 <a name="resources"></a>
 ## リソース
@@ -137,7 +137,7 @@ Laravelアプリケーションの`config/app.php`設定ファイルには、Lar
 <a name="migrations"></a>
 ### マイグレーション
 
-もしパッケージが[データベースマイグレーション](/docs/{{version}}/migrations)を含んでいる場合、`loadMigrationsFrom`メソッドを使用し、Laravelへどのようにロードするのかを知らせます。`loadMigrationsFrom`メソッドは引数を一つ取り、パッケージのマイグレーションのパスです。
+もしパッケージが[データベースマイグレーション](migrations)を含んでいる場合、`loadMigrationsFrom`メソッドを使用し、Laravelへどのようにロードするのかを知らせます。`loadMigrationsFrom`メソッドは引数を一つ取り、パッケージのマイグレーションのパスです。
 
     /**
      * サービス初期処理登録後の処理
@@ -154,7 +154,7 @@ Laravelアプリケーションの`config/app.php`設定ファイルには、Lar
 <a name="translations"></a>
 ### 言語ファイル
 
-パッケージが[言語ファイル](/docs/{{version}}/localization)を含む場合、`loadTranslationsFrom`メソッドを使用し、Laravelへどのようにロードするのかを伝えてください。たとえば、パッケージの名前が`courier`の場合、以下のコードをサービスプロバイダの`boot`メソッドに追加します。
+パッケージが[言語ファイル](localization)を含む場合、`loadTranslationsFrom`メソッドを使用し、Laravelへどのようにロードするのかを伝えてください。たとえば、パッケージの名前が`courier`の場合、以下のコードをサービスプロバイダの`boot`メソッドに追加します。
 
     /**
      * サービス初期処理登録後の処理
@@ -193,7 +193,7 @@ Laravelアプリケーションの`config/app.php`設定ファイルには、Lar
 <a name="views"></a>
 ### ビュー
 
-パッケージの[ビュー](/docs/{{version}}/views)をLaravelへ登録するには、ビューがどこにあるのかをLaravelに知らせる必要があります。そのために、サービスプロバイダの`loadViewsFrom`メソッドを使用してください。`loadViewsFrom`メソッドは２つの引数を取ります。ビューテンプレートへのパスと、パッケージの名前です。たとえば、パッケージ名が`courier`であれば、以下の行をサービスプロバイダの`boot`メソッドに追加してください。
+パッケージの[ビュー](views)をLaravelへ登録するには、ビューがどこにあるのかをLaravelに知らせる必要があります。そのために、サービスプロバイダの`loadViewsFrom`メソッドを使用してください。`loadViewsFrom`メソッドは２つの引数を取ります。ビューテンプレートへのパスと、パッケージの名前です。たとえば、パッケージ名が`courier`であれば、以下の行をサービスプロバイダの`boot`メソッドに追加してください。
 
     /**
      * サービス初期処理登録後の処理
@@ -238,7 +238,7 @@ Laravelアプリケーションの`config/app.php`設定ファイルには、Lar
 <a name="commands"></a>
 ## コマンド
 
-パッケージのArtisanコマンドをLaravelへ登録するには、`commands`メソッドを使います。このメソッドは、コマンドクラス名の配列を引数に取ります。コマンドを登録したら、[Artisan CLI](/docs/{{version}}/artisan)を使い、実行できます。
+パッケージのArtisanコマンドをLaravelへ登録するには、`commands`メソッドを使います。このメソッドは、コマンドクラス名の配列を引数に取ります。コマンドを登録したら、[Artisan CLI](artisan)を使い、実行できます。
 
     /**
      * アプリケーションサービスの初期処理

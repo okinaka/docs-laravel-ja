@@ -14,13 +14,13 @@
 <a name="writing-seeders"></a>
 ## シーダクラス定義
 
-シーダーを生成するには、`make:seeder` [Artisanコマンド](/docs/{{version}}/artisan)を実行します。フレームワークが生成するシーダーは全て`database/seeds`ディレクトリに設置されます。
+シーダーを生成するには、`make:seeder` [Artisanコマンド](artisan)を実行します。フレームワークが生成するシーダーは全て`database/seeds`ディレクトリに設置されます。
 
     php artisan make:seeder UsersTableSeeder
 
-シーダクラスはデフォルトで`run`メソッドだけを含んでいます。このメソッドは`db:seed` [Artisanコマンド](/docs/{{version}}/artisan)が実行された時に呼びだされます。`run`メソッドの中でデータベースに何でも好きなデーターを挿入できます。[クエリビルダ](/docs/{{version}}/queries)でデータを挿入することも、もしくは[Eloquentモデルファクトリ](/docs/{{version}}/testing#writing-factories)を使うこともできます。
+シーダクラスはデフォルトで`run`メソッドだけを含んでいます。このメソッドは`db:seed` [Artisanコマンド](artisan)が実行された時に呼びだされます。`run`メソッドの中でデータベースに何でも好きなデーターを挿入できます。[クエリビルダ](queries)でデータを挿入することも、もしくは[Eloquentモデルファクトリ](testing#writing-factories)を使うこともできます。
 
-> {tip} データベースシーディング時、[複数代入](/docs/{{version}}/eloquent#mass-assignment)は自動的に無効になります。
+> {tip} データベースシーディング時、[複数代入](eloquent#mass-assignment)は自動的に無効になります。
 
 例として、Laravelのインストール時にデフォルトで用意されている`DatabaseSeeder`クラスを変更してみましょう。`run`メソッドにデータベースINSERT文を追加します。
 
@@ -49,7 +49,7 @@
 <a name="using-model-factories"></a>
 ### モデルファクトリの利用
 
-もちろんそれぞれのモデルシーダで属性をいちいち指定するのは面倒です。代わりに大量のデータベースレコードを生成するのに便利な[モデルファクトリ](/docs/{{version}}/testing#writing-factories)が使用できます。最初に[モデルファクトリのドキュメント](/docs/{{version}}/testing#writing-factories)を読んで、どのように定義するのかを学んでください。ファクトリが定義できれば、データベースにレコードを挿入する`factory`ヘルパ関数が利用できます。
+もちろんそれぞれのモデルシーダで属性をいちいち指定するのは面倒です。代わりに大量のデータベースレコードを生成するのに便利な[モデルファクトリ](testing#writing-factories)が使用できます。最初に[モデルファクトリのドキュメント](testing#writing-factories)を読んで、どのように定義するのかを学んでください。ファクトリが定義できれば、データベースにレコードを挿入する`factory`ヘルパ関数が利用できます。
 
 例として50件のレコードを生成し、それぞれのユーザーへリレーションを付加してみましょう。
 

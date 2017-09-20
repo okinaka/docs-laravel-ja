@@ -39,7 +39,7 @@
 <a name="defining-relationships"></a>
 ## リレーションの定義
 
-Eloquentのリレーション（関係）とはEloquentモデルクラスのメソッドとして定義します。Eloquentモデル自身と同様にリレーションはパワフルな[クエリビルダ](/docs/{{version}}/queries)として動作しますので、メソッドとして定義しているリレーションはパワフルなメソッドのチェーンとクエリ能力を提供できるのです。例として、posts関係に追加の制約をチェーンしてみましょう。
+Eloquentのリレーション（関係）とはEloquentモデルクラスのメソッドとして定義します。Eloquentモデル自身と同様にリレーションはパワフルな[クエリビルダ](queries)として動作しますので、メソッドとして定義しているリレーションはパワフルなメソッドのチェーンとクエリ能力を提供できるのです。例として、posts関係に追加の制約をチェーンしてみましょう。
 
     $user->posts()->where('active', 1)->get();
 
@@ -672,7 +672,7 @@ Eloquentリレーションは全てメソッドとして定義されているた
 
     $user->posts()->where('active', 1)->get();
 
-すべての[クエリビルダ](/docs/{{version}}/queries)メソッドをリレーションで使用することも可能です。ですから、提供している全メソッドを学ぶために、クエリビルダのドキュメントを研究してください。
+すべての[クエリビルダ](queries)メソッドをリレーションで使用することも可能です。ですから、提供している全メソッドを学ぶために、クエリビルダのドキュメントを研究してください。
 
 <a name="relationship-methods-vs-dynamic-properties"></a>
 ### リレーションメソッド 対 動的プロパティ
@@ -833,7 +833,7 @@ Eloquentリレーションをプロパティとしてアクセスする場合、
         $query->where('title', 'like', '%first%');
     }])->get();
 
-この例でEloquentは、`title`カラムの内容に`first`という言葉を含むポストのみをEagerロードしています。もちろんEagerロード操作を更にカスタマイズするために、他の[クエリビルダ](/docs/{{version}}/queries)を呼び出すこともできます。
+この例でEloquentは、`title`カラムの内容に`first`という言葉を含むポストのみをEagerロードしています。もちろんEagerロード操作を更にカスタマイズするために、他の[クエリビルダ](queries)を呼び出すこともできます。
 
     $users = App\User::with(['posts' => function ($query) {
         $query->orderBy('created_at', 'desc');
@@ -904,7 +904,7 @@ Eloquentは新しいモデルをリレーションに追加するために便利
         'message' => 'A new comment.',
     ]);
 
-> {tip} `create`メソッドを使用する前に属性の[複数代入](/docs/{{version}}/eloquent#mass-assignment)に関するドキュメントを読んでおいてください。
+> {tip} `create`メソッドを使用する前に属性の[複数代入](eloquent#mass-assignment)に関するドキュメントを読んでおいてください。
 
 `createMany`メソッドで複数のリレーションモデルを生成することができます。
 

@@ -11,7 +11,7 @@
 <a name="introduction"></a>
 ## イントロダクション
 
-LaravelはSQLを直接使用する場合でも、[Fluentクエリビルダ](/docs/{{version}}/queries)や[Eloquent ORM](/docs/{{version}}/eloquent)を使う時でも、データベースの取り扱いをとても簡単にしてくれます。現在、Laravelは以下のデータベースシステムを使用しています。
+LaravelはSQLを直接使用する場合でも、[Fluentクエリビルダ](queries)や[Eloquent ORM](eloquent)を使う時でも、データベースの取り扱いをとても簡単にしてくれます。現在、Laravelは以下のデータベースシステムを使用しています。
 
 <div class="content-list" markdown="1">
 - MySQL
@@ -25,7 +25,7 @@ LaravelはSQLを直接使用する場合でも、[Fluentクエリビルダ](/doc
 
 データベース設定ファイルは`config/database.php`です。このファイルで使用するデータベース接続を全部定義すると同時に、デフォルトで使用する接続も指定してください。サポートしているほとんどのデータベースシステムの例がファイルの中に用意しています。
 
-デフォルトでLaravelのサンプル[環境設定](/docs/{{version}}/configuration#environment-configuration)は、ローカルマシン上でLaravelでの開発を行うのに便利な仮想マシンである[Laravel Homestead](/docs/{{version}}/homestead)用に設定してあります。もちろん、ローカルのデータベースに合わせるため、自由に変更してくだい。
+デフォルトでLaravelのサンプル[環境設定](configuration#environment-configuration)は、ローカルマシン上でLaravelでの開発を行うのに便利な仮想マシンである[Laravel Homestead](homestead)用に設定してあります。もちろん、ローカルのデータベースに合わせるため、自由に変更してくだい。
 
 #### SQLite設定
 
@@ -149,7 +149,7 @@ Read/Write接続を理解してもらうため、以下の例をご覧くださ�
 <a name="listening-for-query-events"></a>
 ### クエリイベントのリッスン
 
-アプリケーションで実行される各SQLクエリを取得したい場合は、`listen`メソッドがし良いうできます。このメソッドはクエリをログしたり、デバッグしたりするときに便利です。クエリリスナは[サービスプロバイダ](/docs/{{version}}/providers)の中で登録します。
+アプリケーションで実行される各SQLクエリを取得したい場合は、`listen`メソッドがし良いうできます。このメソッドはクエリをログしたり、デバッグしたりするときに便利です。クエリリスナは[サービスプロバイダ](providers)の中で登録します。
 
     <?php
 
@@ -220,4 +220,4 @@ Read/Write接続を理解してもらうため、以下の例をご覧くださ�
 
     DB::commit();
 
-> {tip} `DB`ファサードのトランザクションメソッドは、[クエリビルダ](/docs/{{version}}/queries)と[Eloquent ORM](/docs/{{version}}/eloquent)のトランザクションを両方共にコントロールします。
+> {tip} `DB`ファサードのトランザクションメソッドは、[クエリビルダ](queries)と[Eloquent ORM](eloquent)のトランザクションを両方共にコントロールします。

@@ -37,7 +37,7 @@ Laravelの認証機能は「ガード」と「プロバイダ」を中心概念�
 <a name="introduction-database-considerations"></a>
 ### データベースの検討事項
 
-デフォルトととしてLaravelは、`App\User` [Eloquentモデル](/docs/{{version}}/eloquent)を`app`ディレクトリに用意しています。このモデルはデフォルトEloquent認証ドライバで使用しています。もしアプリケーションでEloquentを使用しなければ、Laravelクエリビルダを使用する`database`認証ドライバを使用する必要があります。
+デフォルトととしてLaravelは、`App\User` [Eloquentモデル](eloquent)を`app`ディレクトリに用意しています。このモデルはデフォルトEloquent認証ドライバで使用しています。もしアプリケーションでEloquentを使用しなければ、Laravelクエリビルダを使用する`database`認証ドライバを使用する必要があります。
 
 `App\User`モデルのデータベーススキマー構築時に、確実にパスワードカラムを最低６０文字確保してください。デフォルトの２５５文字にするのが、良い方法でしょう。
 
@@ -110,7 +110,7 @@ Laravelの認証機能は「ガード」と「プロバイダ」を中心概念�
 
 `RegisterController`の`validator`メソッドはアプリケーションの新しいユーザーに対するバリデーションルールで構成されています。このメソッドはお気に召すまま自由に変更してください。
 
-`RegisterController`の`create`メソッドは新しい`App\User`レコードを[Eloquent ORM](/docs/{{version}}/eloquent)を使用し、データベースに作成することに責任を持っています。データベースの必要に合わせて自由にこのメソッドを変更してください。
+`RegisterController`の`create`メソッドは新しい`App\User`レコードを[Eloquent ORM](eloquent)を使用し、データベースに作成することに責任を持っています。データベースの必要に合わせて自由にこのメソッドを変更してください。
 
 <a name="retrieving-the-authenticated-user"></a>
 ### 認証済みユーザーの取得
@@ -157,18 +157,18 @@ Laravelの認証機能は「ガード」と「プロバイダ」を中心概念�
         // ユーザーはログインしている
     }
 
-> {tip} `check`メソッドを使っても、あるユーザーが認証済みであるかを判定可能です。特定のルートやコントローラへユーザーをアクセスさせる前に、認証済みであるかをミドルウェアにより確認する場合、典型的に使用します。より詳細については[ルートの保護](/docs/{{version}}/authentication#protecting-routes)のドキュメントを参照してください。
+> {tip} `check`メソッドを使っても、あるユーザーが認証済みであるかを判定可能です。特定のルートやコントローラへユーザーをアクセスさせる前に、認証済みであるかをミドルウェアにより確認する場合、典型的に使用します。より詳細については[ルートの保護](authentication#protecting-routes)のドキュメントを参照してください。
 
 <a name="protecting-routes"></a>
 ### ルートの保護
 
-[ルートミドルウェア](/docs/{{version}}/middleware)は特定のルートに対し、認証済みユーザーのみアクセスを許すために使われます。Laravelには`Illuminate\Auth\Middleware\Authenticate`の中で定義されている`auth`ミドルウェアが最初から用意されています。このミドルウェアは、HTTPカーネルで登録済みのため、必要なのはルート定義でこのミドルウェアを指定するだけです。
+[ルートミドルウェア](middleware)は特定のルートに対し、認証済みユーザーのみアクセスを許すために使われます。Laravelには`Illuminate\Auth\Middleware\Authenticate`の中で定義されている`auth`ミドルウェアが最初から用意されています。このミドルウェアは、HTTPカーネルで登録済みのため、必要なのはルート定義でこのミドルウェアを指定するだけです。
 
     Route::get('profile', function() {
         // 認証済みのユーザーのみが入れる
     })->middleware('auth');
 
-もちろん[コントローラ](/docs/{{version}}/controllers)を使っていれば、ルート定義に付加する代わりに、コントローラのコンストラクターで`middleware`メソッドを呼び出すことができます。
+もちろん[コントローラ](controllers)を使っていれば、ルート定義に付加する代わりに、コントローラのコンストラクターで`middleware`メソッドを呼び出すことができます。
 
     public function __construct()
     {
@@ -194,7 +194,7 @@ Laravelの組み込み`LoginController`クラスを使用している場合、`I
 
 もちろん、Laravelに含まれる認証コントローラを使うことを強要しているわけでありません。これらのコントローラを削除する選択肢を選ぶのなら、Laravel認証クラスを直接使用しユーザーの認証を管理する必要があります。心配ありません。それでも簡単です！
 
-Laravelの認証サービスには`Auth`[ファサード](/docs/{{version}}/facades)でアクセスできます。クラスの最初で`Auth`ファサードを確実にインポートしておきましょう。次に`attempt`メソッドを見てみましょう。
+Laravelの認証サービスには`Auth`[ファサード](facades)でアクセスできます。クラスの最初で`Auth`ファサードを確実にインポートしておきましょう。次に`attempt`メソッドを見てみましょう。
 
     <?php
 
@@ -272,7 +272,7 @@ Laravelの認証サービスには`Auth`[ファサード](/docs/{{version}}/faca
 
 #### Userインスタンスによる認証
 
-既に存在しているユーザーインスタンスでアプリケーションにログインさせる必要があれば、`login`メソッドにそのユーザーインスタンスを指定し呼び出してください。指定されたオブジェクトは`Illuminate\Contracts\Auth\Authenticatable`[契約](/docs/{{version}}/contracts)を実装している必要があります。もちろん、Laravelが用意している`App\User`モデルはこのインターフェイスを実装しています。
+既に存在しているユーザーインスタンスでアプリケーションにログインさせる必要があれば、`login`メソッドにそのユーザーインスタンスを指定し呼び出してください。指定されたオブジェクトは`Illuminate\Contracts\Auth\Authenticatable`[契約](contracts)を実装している必要があります。もちろん、Laravelが用意している`App\User`モデルはこのインターフェイスを実装しています。
 
     Auth::login($user);
 
@@ -303,7 +303,7 @@ Laravelの認証サービスには`Auth`[ファサード](/docs/{{version}}/faca
 <a name="http-basic-authentication"></a>
 ## HTTP基本認証
 
-[HTTP基本認証](https://en.wikipedia.org/wiki/Basic_access_authentication)により、専用の「ログイン」ページを用意しなくても手っ取り早くアプリケーションにユーザーをログインさせられます。これを使用するには、ルートに`auth.basic`[ミドルウェア](/docs/{{version}}/middleware)を付けてください。`auth.basic`ミドルウェアはLaravelフレームワークに含まれているので、定義する必要はありません。
+[HTTP基本認証](https://en.wikipedia.org/wiki/Basic_access_authentication)により、専用の「ログイン」ページを用意しなくても手っ取り早くアプリケーションにユーザーをログインさせられます。これを使用するには、ルートに`auth.basic`[ミドルウェア](middleware)を付けてください。`auth.basic`ミドルウェアはLaravelフレームワークに含まれているので、定義する必要はありません。
 
     Route::get('profile', function() {
         // 認証済みのユーザーのみが入れる
@@ -321,7 +321,7 @@ PHP FastCGIを使用している場合、初期状態のままでHTTP基本認�
 <a name="stateless-http-basic-authentication"></a>
 ### ステートレスなHTTP基本認証
 
-セッションの識別クッキーを用いずにHTTP基本認証を使用することもできます。これは特にAPI認証に便利です。実装するには、`onceBasic`メソッドを呼び出す[ミドルウェアを定義](/docs/{{version}}/middleware)してください。`onceBasic`メソッドが何もレスポンスを返さなかった場合、リクエストをアプリケーションの先の処理へ通します。
+セッションの識別クッキーを用いずにHTTP基本認証を使用することもできます。これは特にAPI認証に便利です。実装するには、`onceBasic`メソッドを呼び出す[ミドルウェアを定義](middleware)してください。`onceBasic`メソッドが何もレスポンスを返さなかった場合、リクエストをアプリケーションの先の処理へ通します。
 
     <?php
 
@@ -345,7 +345,7 @@ PHP FastCGIを使用している場合、初期状態のままでHTTP基本認�
 
     }
 
-次に[ルートミドルウェアを登録](/docs/{{version}}/middleware#registering-middleware)し、ルートに付加します。
+次に[ルートミドルウェアを登録](middleware#registering-middleware)し、ルートに付加します。
 
     Route::get('api/user', function() {
         // 認証済みのユーザーのみが入れる
@@ -354,7 +354,7 @@ PHP FastCGIを使用している場合、初期状態のままでHTTP基本認�
 <a name="adding-custom-guards"></a>
 ## カスタムガードの追加
 
-独自の認証ガードは`Auth`ファサードの`extend`メソッドを使用し、定義します。[サービスプロバイダ](/docs/{{version}}/providers)の中で呼び出します。`AuthServiceProvider`をLaravelはあらかじめ用意しているので、この中にコードを設置できます。
+独自の認証ガードは`Auth`ファサードの`extend`メソッドを使用し、定義します。[サービスプロバイダ](providers)の中で呼び出します。`AuthServiceProvider`をLaravelはあらかじめ用意しているので、この中にコードを設置できます。
 
     <?php
 
@@ -497,7 +497,7 @@ PHP FastCGIを使用している場合、初期状態のままでHTTP基本認�
 <a name="events"></a>
 ## イベント
 
-Laravelは認証処理の過程で、様々な[イベント](/docs/{{version}}/events)を発行します。`EventServiceProvider`の中で、こうしたイベントに対するリスナを設定できます。:
+Laravelは認証処理の過程で、様々な[イベント](events)を発行します。`EventServiceProvider`の中で、こうしたイベントに対するリスナを設定できます。:
 
     /**
      * アプリケーションに指定されたイベントリスナ

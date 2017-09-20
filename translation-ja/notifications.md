@@ -42,7 +42,7 @@
 <a name="introduction"></a>
 ## イントロダクション
 
-[メール送信](/docs/{{version}}/mail)に加え、LaravelはSMS（[Nexmo](https://www.nexmo.com/)使用）、[Slack](https://slack.com)などの、さまざまな複数チャンネルへ渡る通知をサポートしています。通知はWebインターフェイスで表示できるように、データバースに保存することもできます。
+[メール送信](mail)に加え、LaravelはSMS（[Nexmo](https://www.nexmo.com/)使用）、[Slack](https://slack.com)などの、さまざまな複数チャンネルへ渡る通知をサポートしています。通知はWebインターフェイスで表示できるように、データバースに保存することもできます。
 
 通常、通知はアプリケーションで何かが起きたことをユーザーへ知らせる、短い情報メッセージです。たとえば、課金アプリを作成しているなら、メールとSMSチャンネルで「課金支払い」を送信できます。
 
@@ -61,7 +61,7 @@ Laravelの各通知は、（通常、`app/Notifications`ディレクトリに設
 <a name="using-the-notifiable-trait"></a>
 ### Notifiableトレイトの使用
 
-通知は２つの方法で送信されます。`Notifiable`トレイトの`notify`メソッドか、`Notification`[ファサード](/docs/{{version}}/facades)を使う方法です。最初に、トレイトを見ていきましょう。
+通知は２つの方法で送信されます。`Notifiable`トレイトの`notify`メソッドか、`Notification`[ファサード](facades)を使う方法です。最初に、トレイトを見ていきましょう。
 
     <?php
 
@@ -86,7 +86,7 @@ Laravelの各通知は、（通常、`app/Notifications`ディレクトリに設
 <a name="using-the-notification-facade"></a>
 ### Notificationファサードの使用
 
-ほかに、`Notification`[ファサード](/docs/{{version}}/facades)を使用し、通知を送る方法もあります。これは主にユーザーコレクションのような、複数の通知可能エンティティに対し、通知する場合に便利です。ファサードを使い通知するには、`send`メソッドへ通知可能エンティティ全部と、通知インスタンスを渡します。
+ほかに、`Notification`[ファサード](facades)を使用し、通知を送る方法もあります。これは主にユーザーコレクションのような、複数の通知可能エンティティに対し、通知する場合に便利です。ファサードを使い通知するには、`send`メソッドへ通知可能エンティティ全部と、通知インスタンスを渡します。
 
     Notification::send($users, new InvoicePaid($invoice));
 
@@ -113,7 +113,7 @@ Laravelの各通知は、（通常、`app/Notifications`ディレクトリに設
 <a name="queueing-notifications"></a>
 ### 通知のキューイング
 
-> {note} 通知のキューイングを行う前に、キューを設定し、[ワーカを起動](/docs/{{version}}/queues)する必要があります。
+> {note} 通知のキューイングを行う前に、キューを設定し、[ワーカを起動](queues)する必要があります。
 
 通知の送信には時間が取られます。特にそのチャンネルが通知を配信するために、外部のAPIを呼び出す必要がある場合は特にです。アプリケーションのレスポンスタイムを向上させるには、クラスに`ShouldQueue`インターフェイスと、`Queueable`トレイトを追加し、キューイングしましょう。このインターフェイスとトレイトは、`make:notification`を使用して生成された全通知でインポート済みですから、すぐに通知クラスに追加できます。
 
@@ -201,7 +201,7 @@ Laravelの各通知は、（通常、`app/Notifications`ディレクトリに設
         );
     }
 
-さらに、`toMail`メソッドから[Mailableオブジェクト](/docs/{{version}}/mail)を返すこともできます。
+さらに、`toMail`メソッドから[Mailableオブジェクト](mail)を返すこともできます。
 
     use App\Mail\InvoicePaid as Mailable;
 
@@ -465,12 +465,12 @@ Markdownメール通知ではBladeコンポーネントとMarkdown記法が利�
 <a name="broadcast-prerequisites"></a>
 ### 事前要件
 
-ブロードキャスト通知の前に、Laravelの[イベントブロードキャスト](/docs/{{version}}/broadcasting)サービスを設定し、慣れておく必要があります。イベントブロードキャストは、JavaScriptクライアント側で、サーバサイドで発行されたLaravelイベントに対処する方法を提供しています。
+ブロードキャスト通知の前に、Laravelの[イベントブロードキャスト](broadcasting)サービスを設定し、慣れておく必要があります。イベントブロードキャストは、JavaScriptクライアント側で、サーバサイドで発行されたLaravelイベントに対処する方法を提供しています。
 
 <a name="formatting-broadcast-notifications"></a>
 ### ブロードキャスト通知のフォーマット
 
-`broadcast`チャンネルは、リアルタイムでJavaScriptクライアントが通知を補足できるようにする、Laravelの[イベントブロードキャスト](/docs/{{version}}/broadcasting)サービスを用い、通知をブロードキャストします。通知でブロードキャストをサポートする場合、通知クラスで`toBroadcast`メソッドを定義する必要があります。このメソッドは`$notifiable`エンティティを受け取り、プレーンなPHP配列を返す必要があります。返される配列はJSONへエンコードされ、JavaScriptクライアントへブロードキャストされます。`toBroadcast`メソッドの例を見てみましょう。
+`broadcast`チャンネルは、リアルタイムでJavaScriptクライアントが通知を補足できるようにする、Laravelの[イベントブロードキャスト](broadcasting)サービスを用い、通知をブロードキャストします。通知でブロードキャストをサポートする場合、通知クラスで`toBroadcast`メソッドを定義する必要があります。このメソッドは`$notifiable`エンティティを受け取り、プレーンなPHP配列を返す必要があります。返される配列はJSONへエンコードされ、JavaScriptクライアントへブロードキャストされます。`toBroadcast`メソッドの例を見てみましょう。
 
     use Illuminate\Notifications\Messages\BroadcastMessage;
 
@@ -501,7 +501,7 @@ Markdownメール通知ではBladeコンポーネントとMarkdown記法が利�
 <a name="listening-for-notifications"></a>
 ### 通知のリッスン
 
-プライベートチャンネルにブロードキャストされる通知は、`{notifiable}.{id}`命名規則に従いフォーマットされます。ですから、IDが`1`の`App\User`インスタンスを通知で送る場合、`App.User.1`プライベートチャンネルへブロードキャストされます。[Laravel Echo](/docs/{{version}}/broadcasting)を使用していれば、`notification`ヘルパメソッドを使い、チャンネルへの通知を簡単にリッスンできます。
+プライベートチャンネルにブロードキャストされる通知は、`{notifiable}.{id}`命名規則に従いフォーマットされます。ですから、IDが`1`の`App\User`インスタンスを通知で送る場合、`App.User.1`プライベートチャンネルへブロードキャストされます。[Laravel Echo](broadcasting)を使用していれば、`notification`ヘルパメソッドを使い、チャンネルへの通知を簡単にリッスンできます。
 
     Echo.private('App.User.' + userId)
         .notification((notification) => {

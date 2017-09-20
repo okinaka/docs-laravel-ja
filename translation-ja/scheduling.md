@@ -67,7 +67,7 @@ Laravelのコマンドスケジューラは、Laravel自身の中でコマンド
 <a name="scheduling-artisan-commands"></a>
 ### Artisanコマンドのスケジュール
 
-「クロージャ」の呼び出しをスケジュールするほかに、[Artisanコマンド](/docs/{{version}}/artisan)やオペレーティングシステムコマンドをスケジュールできます。たとえば、コマンド名かそのクラスのどちらかを用いて、Artisanコマンドをスケジュールする`command`メソッドを使ってみましょう。
+「クロージャ」の呼び出しをスケジュールするほかに、[Artisanコマンド](artisan)やオペレーティングシステムコマンドをスケジュールできます。たとえば、コマンド名かそのクラスのどちらかを用いて、Artisanコマンドをスケジュールする`command`メソッドを使ってみましょう。
 
     $schedule->command('emails:send --force')->daily();
 
@@ -76,7 +76,7 @@ Laravelのコマンドスケジューラは、Laravel自身の中でコマンド
 <a name="scheduling-queued-jobs"></a>
 ### キュー投入するジョブのスケジュール
 
-[キュー投入するジョブ](/docs/{{version}}/queues)をスケジュールするには、`job`メソッドを使います。このメソッドを使うと、ジョブをキューに入れるためのクロージャを自前で作成する`call`メソッドを使わずとも、ジョブをスケジュール実行することができます。
+[キュー投入するジョブ](queues)をスケジュールするには、`job`メソッドを使います。このメソッドを使うと、ジョブをキューに入れるためのクロージャを自前で作成する`call`メソッドを使わずとも、ジョブをスケジュール実行することができます。
 
     $schedule->job(new Heartbeat)->everyFiveMinutes();
 
@@ -178,12 +178,12 @@ Laravelのコマンドスケジューラは、Laravel自身の中でコマンド
 
     $schedule->command('emails:send')->withoutOverlapping();
 
-この例の場合、`emails:send` [Artisanコマンド](/docs/{{version}}/artisan)は実行中でない限り毎分実行されます。`withoutOverlapping`メソッドは指定したタスクの実行時間の変動が非常に大きく、予想がつかない場合に特に便利です。
+この例の場合、`emails:send` [Artisanコマンド](artisan)は実行中でない限り毎分実行されます。`withoutOverlapping`メソッドは指定したタスクの実行時間の変動が非常に大きく、予想がつかない場合に特に便利です。
 
 <a name="maintenance-mode"></a>
 ### メンテナンスモード
 
-Laravelのスケジュールタスクは、Laravelが[メンテナンスモード](/docs/{{version}}/configuration#maintenance-mode)の間は実行されません。メンテナンスが完了していないサーバ上で、タスクが実行されてほしくないからです。しかし、メンテナンスモードでも実行するように強制したい場合は、`evenInMaintenanceMode`メソッドを使用します。
+Laravelのスケジュールタスクは、Laravelが[メンテナンスモード](configuration#maintenance-mode)の間は実行されません。メンテナンスが完了していないサーバ上で、タスクが実行されてほしくないからです。しかし、メンテナンスモードでも実行するように強制したい場合は、`evenInMaintenanceMode`メソッドを使用します。
 
     $schedule->command('emails:send')->evenInMaintenanceMode();
 
@@ -202,7 +202,7 @@ Laravelスケジューラはスケジュールしたタスクが生成する出�
              ->daily()
              ->appendOutputTo($filePath);
 
-`emailOutputTo`メソッドを使えば、選択したメールアドレスへ出力をメールで送ることができます。タスク出力をメールで送信する前に、[メール送信サービス](/docs/{{version}}/mail)の設定を済ませておく必要があります。
+`emailOutputTo`メソッドを使えば、選択したメールアドレスへ出力をメールで送ることができます。タスク出力をメールで送信する前に、[メール送信サービス](mail)の設定を済ませておく必要があります。
 
     $schedule->command('foo')
              ->daily()

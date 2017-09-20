@@ -98,7 +98,7 @@ Laravelのローカリゼーション機能はアプリケーションで多言�
 
     echo __('I love programming.');
 
-もちろん、[Bladeテンプレートエンジン](/docs/{{version}}/blade)を使用している場合は、`{{ }}`記法で翻訳文字列をechoするか、`@lang`ディレクティブを使用します。
+もちろん、[Bladeテンプレートエンジン](blade)を使用している場合は、`{{ }}`記法で翻訳文字列をechoするか、`@lang`ディレクティブを使用します。
 
     {{ __('messages.welcome') }}
 
